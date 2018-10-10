@@ -1,0 +1,27 @@
+{
+  "name": "tedx-charoenkrung",
+  "version": "1.0.0",
+  "description": "This is a website for TEDX Charoenkrung",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuviengchai/tedx-charoenkrung.git"
+  },
+  "author": "Chawit Uviengchai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cuviengchai/tedx-charoenkrung/issues"
+  },
+  "homepage": "https://github.com/cuviengchai/tedx-charoenkrung#readme",
+  "dependencies": {
+    "next": "^7.0.1",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2"
+  }
+}
