@@ -17,5 +17,15 @@ export default () => (
       <PostLink id="learn-nextjs" title="Learn Next.js is awesome"/>
       <PostLink id="deploy-nextjs" title="Deploy apps with Zeit"/>
     </ul>
+    <section className="section">
+    <div className="container">
+      <h1 className="title">
+        Hello World
+      </h1>
+      <p className="subtitle">
+        My first website with <strong>Bulma</strong>!
+      </p>
+    </div>
+  </section>
   </Layout>
 )
