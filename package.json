@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
+    "start": "next -p 3001",
     "build": "next build",
-    "start": "next start",
+    "deploy": "next start -p 3001",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
