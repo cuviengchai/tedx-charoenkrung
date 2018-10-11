@@ -1,20 +1,29 @@
 import Link from 'next/link'
 
-const linkStyle = {
-  marginRight: 15
-}
-
 const Header = () => (
-    <div>
+    <div class = "container is-fullhd">
+      <nav class = "level">
+      <p class="level-item has-text-centered">
         <Link href="/">
-          <a style={linkStyle}>Home</a>
+          <a class="link is-info">Home</a>
         </Link>
-        <Link href="/about">
-          <a style={linkStyle}>About</a>
+      </p>
+      <p class="level-item has-text-centered">
+        <Link href="/">
+          <a class="link is-info">Menu</a>
         </Link>
-        <Link href="/mypage">
-          <a style={linkStyle}>Mypage</a>
+      </p>
+      <p class="level-item has-text-centered">
+        <Link href="/">
+          <a class="link is-info">Menu</a>
         </Link>
+      </p>
+      <p class="level-item has-text-centered">
+        <Link href="/">
+          <a class="link is-info">Menu</a>
+        </Link>
+      </p>
+      </nav>
     </div>
 )
 
