@@ -4,7 +4,7 @@
   "description": "This is a website for TEDX Charoenkrung",
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "next -p 4000",
     "start": "next -p 3001",
     "build": "next build",
     "deploy": "next start -p 3001",
@@ -24,6 +24,7 @@
     "bulma": "^0.7.1",
     "next": "^7.0.1",
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-meta-tags": "^0.7.1"
   }
 }

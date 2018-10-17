@@ -1,5 +1,6 @@
 import Layout from '../components/Layout.js'
 import Link from 'next/link'
+import MetaTags from 'react-meta-tags'
 
 const PostLink = (props) => (
   <li>
@@ -11,6 +12,10 @@ const PostLink = (props) => (
 
 export default () => (
   <Layout>
+    <MetaTags>
+      <link rel='stylesheet' type='text/css' href='/static/css/bulma.css' ></link>
+      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    </MetaTags>
     <h1>My Blog</h1>
     <ul>
       <PostLink id="hello-nextjs" title="Hello Next.js"/>
