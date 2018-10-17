@@ -22,7 +22,7 @@
   "homepage": "https://github.com/cuviengchai/tedx-charoenkrung#readme",
   "dependencies": {
     "bulma": "^0.7.1",
-    "next": "^7.0.1",
+    "next": "^7.0.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-meta-tags": "^0.7.1"
