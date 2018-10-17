@@ -12,6 +12,7 @@ const PostLink = (props) => (
 
 export default () => (
   <Layout>
+    {/* UPDATE CHECK */}
     <MetaTags>
       <link rel='stylesheet' type='text/css' href='/static/css/bulma.css' ></link>
       <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
