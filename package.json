@@ -25,6 +25,7 @@
     "next": "^7.0.2",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "react-meta-tags": "^0.7.1"
+    "react-meta-tags": "^0.7.1",
+    "styled-components": "^4.0.2"
   }
 }
