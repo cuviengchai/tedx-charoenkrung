@@ -45,21 +45,9 @@ const ContentColumn = styled.div`
     margin-right: 1rem;
     width: 30rem;
 `
-// const Content = {
-//     Header: styled.div`
-//         display: flex;
-//         flex-direction: column;
-//         align-items: center;
-//         justify-content: center;
+const Contact = styled.div`
 
-// `,
-//     Col: styled.div`
-//         display: flex;
-//         margin: 3rem
-//         width: 30rem;
-// `,
-// }
-
+`
 const About = (props) =>(
     <Layout>
         <Background>
@@ -110,18 +98,12 @@ const About = (props) =>(
                     </p>
                 </ContentColumn>
             </Content>
-            {/* <Content.Header>
-                <h1 className="title is-1"> TEDXCharoenkrung</h1>
-                <h2 className="subtitle">- about team-</h2>
-            </Content.Header>
-            <Content.Col>
-                <p>TEDxBangkok เป็นแพลตฟอร์มที่ต่อยอด “ไอเดียที่ควรค่าแก่การเผยแพร่” จากระดับนานาชาติสู่กรุงเทพฯ 
-                    จัดขึ้นครั้งแรกเมื่อปี 2015 โดยการรวมทีมของผู้ที่หลงใหลใน TED Talks โดยเฉพาะ TEDx organizers 
-                    และสมาชิก TED Open Translation Project ที่เล็งเห็นถึงความสำคัญในการเผยแพร่ความคิดที่หลากหลาย 
-                    และเชื่อว่าเนื้อหาความรู้และความคิดใหม่ ๆ จะเป็นแรงสำคัญในการขับเคลื่อนสังคมและประเทศข้างหน้า
-                    TEDxBangkok เป็นการจัดงานที่ไม่แสวงหาผลกำไรและดำเนินการโดยอาสาสมัครเป็นหลัก 
-                    รายได้หลังหักค่าใช้จ่ายจะถูกทบไปใช้จัดงานในครั้งต่อ ๆ ไป</p>
-            </Content.Col> */}
+            <Contact>
+            <h1 className="title is-3"> Contact</h1>
+            <p > Email : <a href="#">  This is Email </a></p>
+            <p > Facebook : <a href="#">  This is Facebook.com </a></p>
+            <p > etc : <a href="#">  This is ETC </a></p>
+            </Contact>
         </Container>
         </Background>
     </Layout>
