@@ -31,13 +31,13 @@ class Sponsors extends React.Component {
         console.log(this.state.data.map(sponsor => console.log(sponsor.name)))
         return(
             <Layout>
-                <div className="columns">
-                    {this.state.data.map((sponsor) =>
-                        <div className="column ">
-                            <SponsorItem name={sponsor.name} image={sponsor.image} 
-                            link={sponsor.link} details={sponsor.details}/>
-                        </div>
-                    )}
+                <div className="columns is-desktop">
+                        {this.state.data.map((sponsor) =>
+                            <div className="column ">
+                                <SponsorItem name={sponsor.name} image={sponsor.image} 
+                                link={sponsor.link} details={sponsor.details}/>
+                            </div>
+                        )}
                 </div>
             </Layout>
         )
