@@ -37,7 +37,7 @@ const Navbar = () => (
         </Link>
 
       
-        <Link href="/www"><a class="navbar-item">
+        <Link href="/about"><a class="navbar-item">
             About
           </a>
         </Link>
