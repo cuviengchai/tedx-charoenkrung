@@ -1,0 +1,19 @@
+@import "../../sass/mystyles.scss";
+.card{
+    box-shadow: $light-bg-shadow-down;
+    border-radius: 10px;
+    transition: all $ease-in-out-transition;
+    &:hover{
+        box-shadow: $light-bg-shadow-up;
+        transform: translateY(-3px);
+    }
+    .card-content{
+        border-radius: 10px;
+    }
+    img{
+        border-radius: 10px;
+    }
+    .tag{
+        text-transform: uppercase;
+    }
+}

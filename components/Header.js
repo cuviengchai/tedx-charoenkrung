@@ -84,6 +84,11 @@ const Header = () => (
           <a class="link is-info">About</a>
         </Link>
       </p>
+      <p class="level-item has-text-centered">
+        <Link href="/sponsors">
+          <a class="link is-info">Sponsors</a>
+        </Link>
+      </p>
       </nav>
     </div>
     
