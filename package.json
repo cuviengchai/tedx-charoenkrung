@@ -22,6 +22,7 @@
   "homepage": "https://github.com/cuviengchai/tedx-charoenkrung#readme",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "babel-plugin-styled-components": "^1.8.0",
     "bower-webpack-plugin": "^0.1.9",
     "bulma-extensions": "^3.0.0",
     "clean-webpack-plugin": "^0.1.19",

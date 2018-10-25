@@ -15,10 +15,6 @@ export default () => (
   <Layout pageName="Home">
     <Head>
       <title>Initial</title>
-      <link
-        rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css"
-      />
     </Head>
     <Board />
     <h1>My Blog</h1>

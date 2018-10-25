@@ -2,6 +2,8 @@ import Navbar from "./Navbar"
 import Footer from "./Footer"
 import MetaTags from "react-meta-tags"
 import Board from "./Board"
+import { Container } from "semantic-ui-react"
+
 // const layoutStyle = {
 //   margin: 20,
 //   padding: 20,
@@ -19,7 +21,7 @@ const Layout = props => (
       />
     </MetaTags>
     <Navbar pageName={props.pageName} />
-    {props.children}
+    <Container style={{ marginTop: "7em" }}>{props.children}</Container>
     <Footer />
   </div>
 )

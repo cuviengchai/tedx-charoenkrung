@@ -39,30 +39,19 @@ class Navbar extends React.Component {
     { url: "/", pageName: "Video" },
     { url: "/", pageName: "Content" },
     { url: "/", pageName: "Partner" },
-    { url: "/", pageName: "About" },
+    { url: "/about", pageName: "About" },
     { url: "/sponsors", pageName: "Sponsors" }
   ]
   render() {
     const { selected } = this.state
     return (
-      // <Menu inverted>
-      //   {colorsA.map(c => (
-      //     <Menu.Item
-      //       key={c}
-      //       name={c}
-      //       active={activeA === c}
-      //       color={c}
-      //       onClick={() => this.setState({ activeA: c })}
-      //     />
-      //   ))}
-      // </Menu>
-      <Menu fixed="top" color="white">
+      <Menu fixed="top" fluid="true" size="small">
         <Container>
           <Menu.Item as="a">
             <Image
-              size="small"
+              size="tiny"
               src="static/images/tedx_logo_black.png"
-              style={{ marginRight: "1.5em" }}
+              style={{ marginRight: "2em" }}
             />
           </Menu.Item>
           {this.pages.map(({ url, pageName }, index) => (
@@ -78,35 +67,6 @@ class Navbar extends React.Component {
           ))}
         </Container>
       </Menu>
-      // <nav class="navbar" role="navigation" aria-label="main navigation">
-      //   <div class="navbar-brand">
-      //     <a class="navbar-item" href="https://bulma.io">
-      //       <img src="static/images/tedx_logo_black.png" />
-      //     </a>
-      //     <a
-      //       role="button"
-      //       class="navbar-burger"
-      //       aria-label="menu"
-      //       aria-expanded="false"
-      //     >
-      //       <span aria-hidden="true" />
-      //       <span aria-hidden="true" />
-      //       <span aria-hidden="true" />
-      //     </a>
-      //   </div>
-      //   <div class="navbar-menu">
-      //     <div class="navbar-start">
-      //       {this.pages.map(({ url, pageName }, index) => (
-      //         <Link key={index} href={url}>
-      //           <a onClick={() => this.setState({ selected: pageName })}>
-      //             <NavItem pageName={pageName} selected={selected} />
-      //           </a>
-      //         </Link>
-      //       ))}
-      //     </div>
-      //     <div class="navbar-end" />
-      //   </div>
-      // </nav>
     )
   }
 }

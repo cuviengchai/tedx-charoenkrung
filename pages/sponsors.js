@@ -2,7 +2,7 @@ import Layout from "../components/Layout"
 import SponsorItem from "../components/Sponsors/SponsorItem"
 import React from "react"
 import styled from "styled-components"
-import { Button } from "semantic-ui-react"
+import { Card } from "semantic-ui-react"
 
 const CardList = styled.div`
     & .columns{
@@ -41,13 +41,15 @@ class Sponsors extends React.Component {
           name: "TCDC",
           image: "static/images/partners/tcdc.png",
           link: "link3",
-          details: ""
+          details:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar."
         },
         {
           name: "Sheraton",
           image: "static/images/partners/sheraton.png",
           link: "link3",
-          details: ""
+          details:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar."
         }
       ]
     }
@@ -56,10 +58,10 @@ class Sponsors extends React.Component {
     console.log(this.state.data.map(sponsor => console.log(sponsor.name)))
     return (
       <Layout pageName="Sponsors">
-        <CardList>
+        <Card.Group itemsPerRow={4}>
           <div className="ui four column very relaxed grid">
-            {this.state.data.map(sponsor => (
-              <div className="column is-2">
+            {this.state.data.map((sponsor, idx) => (
+              <div key={idx} className="column is-2">
                 <SponsorItem
                   name={sponsor.name}
                   image={sponsor.image}
@@ -69,7 +71,7 @@ class Sponsors extends React.Component {
               </div>
             ))}
           </div>
-        </CardList>
+        </Card.Group>
       </Layout>
     )
   }
