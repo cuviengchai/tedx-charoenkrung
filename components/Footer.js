@@ -1,21 +1,21 @@
 const Footer = () => (
-    <footer class="footer has-background-dark">
+  <footer class="footer has-background-dark">
     <div class="content has-text-centered">
-        <div class="columns is-mobile">
-            <div class="column">
-                <img src="static/images/tedx_charoenkrung.jpg"></img>
-            </div>
-            <div class="column">
-                <img src="static/images/tedx_charoenkrung.jpg"></img>
-            </div>
-            <div class="column">
-                <img src="static/images/tedx_charoenkrung.jpg"></img>
-            </div>
-            <div class="column">
-                <img src="static/images/tedx_charoenkrung.jpg"></img>
-            </div>
+      <div class="columns is-mobile">
+        <div class="column">
+          <img src="static/images/tedx_charoenkrung.jpg" />
         </div>
+        <div class="column">
+          <img src="static/images/tedx_charoenkrung.jpg" />
+        </div>
+        <div class="column">
+          <img src="static/images/tedx_charoenkrung.jpg" />
+        </div>
+        <div class="column">
+          <img src="static/images/tedx_charoenkrung.jpg" />
+        </div>
+      </div>
     </div>
-    </footer>
+  </footer>
 )
 export default Footer
