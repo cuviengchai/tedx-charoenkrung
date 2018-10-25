@@ -1,8 +1,8 @@
 const Board = () => (
-  <section class="hero is-primary">
-    <div class="hero-body">
-      <p class="title">Documentation</p>
-      <p class="subtitle">
+  <section className="hero is-primary">
+    <div className="hero-body">
+      <p className="title">Documentation</p>
+      <p className="subtitle">
         Everything you need to <strong>create a website</strong> with Bulma
       </p>
     </div>

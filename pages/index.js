@@ -1,7 +1,7 @@
 import Layout from "../components/Layout.js"
 import Link from "next/link"
 import Board from "../components/Board"
-// import "semantic-ui-css/semantic.min.css"
+import Head from "next/head"
 
 const PostLink = props => (
   <li>
@@ -13,6 +13,13 @@ const PostLink = props => (
 
 export default () => (
   <Layout pageName="Home">
+    <Head>
+      <title>Initial</title>
+      <link
+        rel="stylesheet"
+        href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css"
+      />
+    </Head>
     <Board />
     <h1>My Blog</h1>
     <ul>
