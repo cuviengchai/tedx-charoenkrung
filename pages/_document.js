@@ -15,7 +15,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Ted</title>
           <script
             defer
             src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
