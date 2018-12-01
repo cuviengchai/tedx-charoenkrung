@@ -80,7 +80,7 @@ const Header = () => (
         </Link>
       </p>
       <p class="level-item has-text-centered">
-        <Link href="/">
+        <Link href="/about">
           <a class="link is-info">About</a>
         </Link>
       </p>
