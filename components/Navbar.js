@@ -3,19 +3,19 @@ import styled from "styled-components"
 import { Menu, Container, Image } from "semantic-ui-react"
 
 const Item = styled.div`
-  background-color: white
-  color: black
-  text-align: center
-  padding: 20px
+  background-color: white;
+  color: black;
+  text-align: center;
+  padding: 20px;
   :hover {
     color: gray;
   }
 `
 const SelectedItem = styled.div`
-  background-color: red
-  color: white
-  text-align: center
-  padding: 20px
+  background-color: red;
+  color: white;
+  text-align: center;
+  padding: 20px;
 `
 
 const MenuItemStyle = styled(Menu.Item)`
@@ -36,7 +36,7 @@ class Navbar extends React.Component {
   state = { selected: this.props.pageName }
   pages = [
     { url: "/", pageName: "Home" },
-    { url: "/", pageName: "Video" },
+    { url: "/video", pageName: "Video" },
     { url: "/", pageName: "Content" },
     { url: "/", pageName: "Partner" },
     { url: "/about", pageName: "About" },
