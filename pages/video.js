@@ -2,7 +2,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
 import VideoPlayer from '../components/video-player/video'
-
+import VideoContainer from '../components/video-player/video-container'
 const Background = styled.div`
   background-color: #d7f4ea;
 `
@@ -14,7 +14,7 @@ const ItemGroupWrapper = styled.div`
 `
 const VideoPage = props => (
   <Layout pageName="video" color='teal'>
-    <VideoPlayer />
+    <VideoContainer />
   </Layout>
 )
 

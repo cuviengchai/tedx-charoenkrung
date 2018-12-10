@@ -1,6 +1,5 @@
 import React from 'react'
-import { Embed, Responsive, Segment } from 'semantic-ui-react'
-import VideoItems from './video-items'
+import { Embed } from 'semantic-ui-react'
 import VideoDetail from './video-detail'
 const VideoPlayer = () => (
   <div>
@@ -19,9 +18,7 @@ const VideoPlayer = () => (
     source='youtube'
   />
   <VideoDetail />
-  <Responsive as={Segment} {...Responsive.onlyComputer}>
-    <VideoItems />
-  </Responsive>
+  
   
   
   </div>

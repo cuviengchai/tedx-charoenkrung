@@ -2,19 +2,20 @@ import React from 'react'
 import { Header, Divider } from 'semantic-ui-react'
 import styled from 'styled-components'
 
-const myBlog = styled.div`
+const MyBlog = styled.div`
   display: flex;
+  flex-direction: column;
 `
 const Blog = ({content}) => {
   const { topic, isLine, context } = content
   return (
-    <myBlog>
+    <MyBlog>
       <Header size='small'>{topic}</Header>
       { isLine && <Divider /> }
       <p>
         {context}
       </p>
-    </myBlog>
+    </MyBlog>
   )
 }
 
