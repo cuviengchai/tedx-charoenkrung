@@ -20,7 +20,7 @@ const VideoContainer = () => {
                 <Grid.Column mobile={16} tablet={16} computer={12} >
                     <VideoPlayer />
                 </Grid.Column>
-                <Grid.Column tablet={0} computer={4}>
+                <Grid.Column computer={4}>
                     <Responsive {...Responsive.onlyComputer}>
                         <VideoItems />
                     </Responsive>
@@ -28,6 +28,7 @@ const VideoContainer = () => {
             </Grid>
             </Grid.Row>
         </Grid>
+        {/* <VideoList /> */}
         </MyContainer>
     )
 }
