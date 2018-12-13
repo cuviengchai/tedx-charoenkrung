@@ -1,10 +1,9 @@
 import React from 'react'
-import { Grid, Image} from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import Blog from './blog'
 import styled from 'styled-components'
-import TopBlog from './top-blog'
 import Contact from './contact'
-import { aboutContent, contactList } from '../../content/about-content'
+import _ from 'lodash'
 
 const BlogColumn = styled.div`
     display: flex;
@@ -14,32 +13,35 @@ const MyContainer = styled.div`
     display: flex;
     margin: 0rem 2rem;
 `
-const BlogContainer = () => {
-    const { Header, LeftBlogs, RightBlogs } = aboutContent
-    const { Contacts } = contactList;
+const TopSpace = styled.br`
+    height: 4rem;
+`
+const BlogContainer = ({ blogContent }) => {
+    const { Header, LeftBlogs, RightBlogs, Contacts } = blogContent
     return (
         <MyContainer>
         <Grid>
             <Grid.Row>
-                <TopBlog content={Header}/>
-                <br />
+            { Header && <Blog content={Header} topicSize='large'/> }
+            { Header && <TopSpace /> }    
             </Grid.Row>
             <Grid.Row>
             <Grid>
                 <Grid.Column mobile={16} computer={12} >
-                { LeftBlogs.map(left => (
+                { _.defaultTo(LeftBlogs, []).map(left => (
                     <BlogColumn key={left.topic}>
-                        <Blog content={left}/>
+                        <Blog content={left} topicSize='small'/>
                     </BlogColumn>
                 ))}
                 </Grid.Column>
                 <Grid.Column mobile={16} computer={4}>
-                    { RightBlogs.map(right => (
+                    { _.defaultTo(RightBlogs, []).map(right => (
                         <BlogColumn key={right.topic}>
-                            <Blog content={right}/>
+                            <Blog content={right} topicSize='small'/>
                         </BlogColumn>
                     ))}
-                    {Contacts.map((contact)=>(
+
+                    { _.defaultTo(Contacts, []).map((contact)=>(
                         <Contact key={contact.name} contact={contact}/>
                     ))}
                 </Grid.Column>

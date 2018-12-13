@@ -14,8 +14,8 @@ const ItemGroupWrapper = styled.div`
 `
 const VideoPage = props => (
   <Layout pageName="video" color='teal'>
-    <VideoContainer />
-    {/* <VideoList /> */}
+    {/* <VideoContainer /> */}
+    <VideoList />
   </Layout>
 )
 
