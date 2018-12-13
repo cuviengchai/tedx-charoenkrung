@@ -55,7 +55,7 @@ class Sponsors extends React.Component {
     }
   }
   render() {
-    console.log(this.state.data.map(sponsor => console.log(sponsor.name)))
+    // console.log(this.state.data.map(sponsor => console.log(sponsor.name)))
     return (
       <Layout pageName="Sponsors">
         <Card.Group itemsPerRow={4}>

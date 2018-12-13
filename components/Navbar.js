@@ -45,7 +45,7 @@ class Navbar extends React.Component {
   render() {
     const { selected } = this.state
     return (
-      <Menu fixed="top" fluid="true" size="small">
+      <Menu fixed="top" fluid={true} size="small">
         <Container>
           <Menu.Item as="a">
             <Image
