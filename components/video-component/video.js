@@ -1,27 +1,26 @@
 import React from 'react'
 import { Embed } from 'semantic-ui-react'
 import VideoDetail from './video-detail'
-const VideoPlayer = () => (
-  <div>
+const VideoPlayer = ({video}) => {
+  const { image, id } = video
+  return (
+    <div>
   <Embed
     autoplay={true}
     color='white'
     hd={false}
-    id='gJscrxxl_Bg'
+    id={id}
     iframe={{
       allowFullScreen: true,
       style: {
         padding: 10,
       },
     }}
-    placeholder='/images/image-16by9.png'
+    placeholder={image}
     source='youtube'
   />
   <VideoDetail />
-  
-  
-  
   </div>
-)
-
+  )
+}
 export default VideoPlayer
