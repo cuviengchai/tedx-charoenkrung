@@ -15,7 +15,7 @@ const VideoContainer = () => {
             <Grid.Row>
                 <h2 > Video Title </h2>
             </Grid.Row>
-            <Grid.Row centered columns={2}>
+            <Grid.Row columns={2}>
             <Grid>
                 <Grid.Column mobile={16} tablet={16} computer={12} >
                     <VideoPlayer />

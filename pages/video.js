@@ -1,22 +1,23 @@
 import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
-import VideoList from '../components/video-player/video-lists'
-import VideoContainer from '../components/video-player/video-container'
-const Background = styled.div`
-  background-color: #d7f4ea;
-`
-const ItemGroupWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 20%;
-  margin-top:4em;
-`
-const VideoPage = props => (
-  <Layout pageName="video" color='teal'>
-    {/* <VideoContainer /> */}
-    <VideoList />
-  </Layout>
-)
+import VideoList from '../components/video-component/video-card-container'
+import VideoContainer from '../components/video-component/video-container'
+import VideoCardConatiner from '../components/video-component/video-card-container'
+import BlogContainer from '../components/blog-component/blog-container.js'
+import videolist from '../content/video-page/videolist.json'
+
+import videoblog from '../content/video-page/videoblog.json'
+const VideoPage = props => {
+  console.log(videolist)
+  return (
+    <Layout pageName="video" color='teal'>
+      {/* <VideoContainer /> */}
+      {/* <VideoList /> */}
+      <BlogContainer blogContent={videoblog}/>
+      {/* <VideoCardConatiner videolist={videolist} /> */}
+    </Layout>
+  )
+}
 
 export default VideoPage

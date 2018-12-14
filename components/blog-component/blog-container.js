@@ -3,6 +3,7 @@ import { Grid } from 'semantic-ui-react'
 import Blog from './blog'
 import styled from 'styled-components'
 import Contact from './contact'
+import VideoCardContainer from '../video-component/video-card-container'
 import _ from 'lodash'
 
 const BlogColumn = styled.div`
@@ -17,7 +18,7 @@ const TopSpace = styled.br`
     height: 4rem;
 `
 const BlogContainer = ({ blogContent }) => {
-    const { Header, LeftBlogs, RightBlogs, Contacts } = blogContent
+    const { Header, LeftBlogs, RightBlogs, Contacts, VideoList } = blogContent
     return (
         <MyContainer>
         <Grid>
@@ -28,6 +29,7 @@ const BlogContainer = ({ blogContent }) => {
             <Grid.Row>
             <Grid>
                 <Grid.Column mobile={16} computer={12} >
+                { VideoList && <VideoCardContainer videolist={VideoList} />}
                 { _.defaultTo(LeftBlogs, []).map(left => (
                     <BlogColumn key={left.topic}>
                         <Blog content={left} topicSize='small'/>
