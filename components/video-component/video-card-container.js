@@ -9,7 +9,7 @@ class VideoCardContainer extends Component {
     viewVideo = (video) => {
         // console.log(video);
         Router.push({
-            pathname: '/about',
+            pathname: '/videoplayer',
             query: { name: 'Zeit' }
           })
     }
