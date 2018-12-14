@@ -7,11 +7,10 @@ import Router from 'next/router'
 
 class VideoCardContainer extends Component {
     viewVideo = (video) => {
-        // console.log(video);
-        Router.push({
+        Router.push ({
             pathname: '/videoplayer',
-            query: { name: 'Zeit' }
-          })
+            query: { videoIndex: `${video.index}` }
+        })
     }
     render() {
         const { videolist } = this.props

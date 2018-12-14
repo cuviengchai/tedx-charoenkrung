@@ -31,7 +31,7 @@ export default class VideoDetail extends Component {
         </Menu>
 
         <Segment>
-          <img src='/images/wireframe/paragraph.png' />
+          {/* <img src='/images/wireframe/paragraph.png' /> */}
         </Segment>
       </div>
     )
