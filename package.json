@@ -8,7 +8,10 @@
     "start": "NODE_ENV=production node server.js",
     "build": "next build",
     "deploy": "next start -p 3001",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "check-server": "BUNDLE_ANALYZE=server yarn build",
+    "check-client": "BUNDLE_ANALYZE=browser yarn build",
+    "check-both": "BUNDLE_ANALYZE=both yarn build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/cuviengchai/tedx-charoenkrung#readme",
   "dependencies": {
+    "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-css": "^1.0.1",
     "babel-plugin-styled-components": "^1.9.4",
     "bower-webpack-plugin": "^0.1.9",
