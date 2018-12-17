@@ -1,15 +1,17 @@
-import Navbar from "./Navbar"
-import Footer from "./Footer"
+import dynamic from 'next/dynamic'
 import MetaTags from "react-meta-tags"
-import Board from "./Board"
 import { Container } from "semantic-ui-react"
-
-// const layoutStyle = {
-//   margin: 20,
-//   padding: 20,
-//   border: '1px solid #DDD'
-// }
-
+const Navbar = dynamic( import('./Navbar'),
+  {
+    loading: () => (<p>loading</p>)
+  }
+)
+const Footer = dynamic(
+  import('./Footer'),
+  {
+    loading: () => (<p>loading</p>)
+  }
+)
 const Layout = props => (
   // <div style={layoutStyle}>
   <div>

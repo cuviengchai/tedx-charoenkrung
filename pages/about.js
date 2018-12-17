@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import BlogContainer from '../components/blog-component/blog-container'
 import styled from "styled-components"
 
+
 import about from '../content/about-page/about.json'
 import sponsor from '../content/about-page/sponsor.json'
 import test from '../content/about-page/test.json'

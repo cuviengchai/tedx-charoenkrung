@@ -1,10 +1,24 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { Grid } from 'semantic-ui-react'
-import Blog from './blog'
 import styled from 'styled-components'
-import Contact from './contact'
-import VideoCardContainer from '../video-component/video-card-container'
 import _ from 'lodash'
+const Blog = dynamic( () => import('./blog'),
+  {
+    loading: () => (<p>loading</p>)
+  }
+)
+const Contact = dynamic(() => import('./contact'),
+  {
+    loading: () => (<p>loading</p>)
+  }
+)
+const VideoCardContainer = dynamic(() => import('../video-component/video-card-container'),
+  {
+    loading: () => (<p>loading</p>)
+  }
+)
+
 
 const BlogColumn = styled.div`
     display: flex;
