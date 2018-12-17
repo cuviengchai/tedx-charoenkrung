@@ -8,7 +8,7 @@ const VideoPlayer = ({video}) => {
   <Embed
     autoplay={true}
     color='white'
-    hd={false}
+    hd={true}
     id={id}
     iframe={{
       allowFullScreen: true,

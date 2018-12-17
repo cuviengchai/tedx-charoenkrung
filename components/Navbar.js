@@ -37,7 +37,7 @@ class Navbar extends React.Component {
   pages = [
     { url: "/", pageName: "Home" },
     { url: "/video", pageName: "Video" },
-    { url: "/", pageName: "Content" },
+    { url: "/content", pageName: "Content" },
     { url: "/", pageName: "Partner" },
     { url: "/about", pageName: "About" },
     { url: "/sponsors", pageName: "Sponsors" }
