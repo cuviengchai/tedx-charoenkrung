@@ -1,76 +1,55 @@
-import React, {Component} from "react"
-import { Grid } from 'semantic-ui-react'
+import React from "react"
 import Layout from "../components/Layout"
-import BlogContainer from '../components/blog-component/blog-container'
-import styled from "styled-components"
-
-
-import about from '../content/about-page/about.json'
-import sponsor from '../content/about-page/sponsor.json'
-import test from '../content/about-page/test.json'
-import Router from 'next/router'
-import { withRouter } from 'next/router'
-import _ from 'lodash'
+import { Grid, Header, Icon } from "semantic-ui-react"
+import styled from 'styled-components'
 
 const MyContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  > div {
-    display: flex;
-    justify-content: flex-start;
-    padding: 0.5rem;
-    box-sizing: border-box;
-    transition: all 0.2s;
-    opacity:0.5;
-    user-select: none;
-    &:hover {
-      opacity:0.8;
-      color: #fff;
-      background: #db2828;
-    }
-    &:active {
-      filter: brightness(0.7);
-    }
-    &.active {
-      opacity:1;
-      color: #fff;
-      background: #db2828;
-    }
-  }
 `
-const Name = [["About", about], ["Sponsor", sponsor], ["test", test]];
-export default withRouter(class About extends Component{
-  onClick = (idx) => (e) => {
-    Router.push(
-    `${Router.router.pathname}?subsection=${idx}`,
-    `${Router.router.pathname}?subsection=${idx}`, {
-      shallow: true
-    })
-  }
-  render(){
-    const pageIdx = _.defaultTo(parseInt(this.props.router.query.subsection), 0);
-    return (
-    <Layout pageName="About" color='teal'>
-      <Grid columns={2} divided>
-      <Grid.Row >
-          <Grid.Column mobile={16} computer={2}>
-            <MyContainer>
-              {
-                Name.map((it, idx) => {
-                  return (
-                    <div key={`AboutTopic-${idx}`} className={pageIdx === idx ? 'active' : ''} onClick={this.onClick(idx)}>{it[0]}</div>
-                  )
-                })
-              }
-            </MyContainer>
-          </Grid.Column>
-          <Grid.Column mobile={16} computer={14}>
-            <BlogContainer blogContent={Name[pageIdx][1]}/>
-          </Grid.Column>
-          </Grid.Row>
-      </Grid>
+const GridContainer = styled(Grid)`
+  display: flex;
+  justify-content: center;
+`
+const  About = () => (
+  <Layout pageName="About" color='teal'>
+    <GridContainer>
+      <Grid.Column mobile={14} computer={6}>
+      <MyContainer>
+        <Header size='medium'> ประวัติความเป็นมา </Header>
+        <p>
+        TEDxCharoenkrung is a non-profit organization located in Charoenkrung District. Charoenkrung is the first road in Thailand built with modern construction methods. Charoenkrung is an antique commercial community full of historical uniqueness, diversity of race, contemporary senses and representing the future district as its name “New Road”.
+        </p>
+      </MyContainer>
+      <br />
+      <MyContainer>
+        <Header size='small'> TEDxChroenkrung aims to spread ideas that can shape a city into a prosperous city and create a doer community as well. </Header>
+      </MyContainer>
+      </Grid.Column>
+      <Grid.Column mobile={14} computer={6}>
+        <Header as='h4'>
+            <Icon name="facebook square" size="big"/>
+            <Header.Content>
+            <a href= "https://www.facebook.com/TEDxCharoenkrung/"> Facebook </a>
+            <Header.Subheader>Facebook</Header.Subheader>
+            </Header.Content>
+        </Header>
+        <Header as='h4'>
+            <Icon name="twitter" size="big"/>
+            <Header.Content>
+            <a href= "https://twitter.com/TEDxCharoenkrun"> Twitter </a>
+            <Header.Subheader>Twitter</Header.Subheader>
+            </Header.Content>
+        </Header>
+        <Header as='h4'>
+            <Icon name="mail" size="big"/>
+            <Header.Content>
+            <a href= "mailto:tedxchraroenkrung@gmail.com"> E-mail </a>
+            <Header.Subheader>E-mail</Header.Subheader>
+            </Header.Content>
+        </Header>
+      </Grid.Column>
+    </GridContainer>
     </Layout>
-    )
-  }
-})
+)
+export default About
