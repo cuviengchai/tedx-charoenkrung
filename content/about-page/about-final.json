@@ -1,0 +1,19 @@
+{
+    "LeftBlogs": [
+        {
+            "topic": "ประวัติความเป็นมา",
+            "isLine": false,
+            "context": "TEDxCharoenkrung is a non-profit organization located in Charoenkrung District. Charoenkrung is the first road in Thailand built with modern construction methods. Charoenkrung is an antique commercial community full of historical uniqueness, diversity of race, contemporary senses and representing the future district as its name “New Road”."
+        },
+        {
+            "topic": "TEDxChroenkrung aims to spread ideas that can shape a city into a prosperous city and create a doer community as well.",
+            "isLine": false,
+            "context": ""
+        }
+    ],
+    "Contacts": [
+        { "icon": "facebook square", "link" :"https://www.facebook.com/TEDxCharoenkrung/", "name": "Facebook", "size": "big" },
+        { "icon": "mail", "link" :"mailto:tedxchraroenkrung@gmail.com", "name": "E-mail", "size": "big" },
+        { "icon": "twitter", "link" :"https://twitter.com/TEDxCharoenkrun", "name": "Twitter", "size": "big" }
+    ]
+}

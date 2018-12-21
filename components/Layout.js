@@ -6,12 +6,6 @@ const Navbar = dynamic( import('./Navbar'),
     loading: () => (<p>loading</p>)
   }
 )
-const Footer = dynamic(
-  import('./Footer'),
-  {
-    loading: () => (<p>loading</p>)
-  }
-)
 const Layout = props => (
   // <div style={layoutStyle}>
   <div>
@@ -24,7 +18,6 @@ const Layout = props => (
     </MetaTags>
     <Navbar pageName={props.pageName} />
     <Container style={{ marginTop: "7em" }}>{props.children}</Container>
-    <Footer />
   </div>
 )
 
