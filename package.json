@@ -39,6 +39,7 @@
     "react-dom": "^16.6.0",
     "react-helmet": "^5.2.0",
     "react-meta-tags": "^0.7.1",
+    "react-slick": "^0.23.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.83.0",
     "style-loader": "^0.23.1",
