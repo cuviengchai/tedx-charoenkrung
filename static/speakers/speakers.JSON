@@ -1,0 +1,38 @@
+[
+  {
+    "eng_name": "Dechart",
+    "thai_name": "ไทยไทยไทย",
+    "image": "static/images/speaker1.jpg",
+    "details": "lorem or something i don't know just trying to make this text as long as possible lol is this long enough? guess so"
+  },
+  {
+    "eng_name": "Jeshosh",
+    "thai_name": "ไทยไทยไทย",
+    "image": "static/images/speaker2.jpg",
+    "details": "lorem or something i don't know just trying to make this text as long as possible lol is this long enough? guess so"
+  },
+  {
+    "eng_name": "Jesun",
+    "thai_name": "ไทยไทยไทย",
+    "image": "static/images/speaker3.jpg",
+    "details": "lorem or something i don't know just trying to make this text as long as possible lol is this long enough? guess so"
+  },
+  {
+    "eng_name": "Mossart",
+    "thai_name": "ไทยไทยไทย",
+    "image": "static/images/speaker1.jpg",
+    "details": "lorem or something i don't know just trying to make this text as long as possible lol is this long enough? guess so"
+  },
+  {
+    "eng_name": "Youj",
+    "thai_name": "ไทยไทยไทย",
+    "image": "static/images/speaker2.jpg",
+    "details": "lorem or something i don't know just trying to make this text as long as possible lol is this long enough? guess so"
+  },
+  {
+    "eng_name": "Hej",
+    "thai_name": "ไทยไทยไทย",
+    "image": "static/images/speaker3.jpg",
+    "details": "lorem or something i don't know just trying to make this text as long as possible lol is this long enough? guess so"
+  }
+]
