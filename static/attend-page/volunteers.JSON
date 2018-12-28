@@ -1,0 +1,169 @@
+[
+  {
+    "col": 0,
+    "content": [
+      {
+        "type": "License Holder and Project Leader",
+        "subType": [],
+        "members": ["Theethat Rangkasiri"]
+      },
+      {
+        "type": "Co-founder and Art Director",
+        "subType": [],
+        "members": ["Varinrumpai Wasinanont"]
+      },
+      {
+        "type": "Project Management",
+        "subType": [],
+        "members": [
+          "Sarin Nitikoontanond",
+          "Nuntipart Chuchoed",
+          "Kritthin Chunwijitra",
+          "Ratima Earskul"
+        ]
+      },
+      {
+        "type": "Strategy Team",
+        "subType": [],
+        "members": ["Teerasak Wongpiya", "Rachit Chairat"]
+      },
+      {
+        "type": "Content Team",
+        "subType": [
+          { "type": "Content Writer", "members": ["Ronnakrit Mongkalakorn"] },
+          {
+            "type": "Curator",
+            "members": [
+              "Thanan Ratanachote",
+              "Thipnapa Huansuriya",
+              "Decharut Sukkumnoed",
+              "Ornicha Akjareanpairod"
+            ]
+          }
+        ],
+        "members": []
+      }
+    ]
+  },
+  {
+    "col": 1,
+    "content": [
+      {
+        "type": "Communication Team",
+        "subType": [
+          {
+            "type": "Head of Communication Team",
+            "members": ["Thanan Ratanachote"]
+          },
+          {
+            "type": "Audience Coordinator",
+            "members": [
+              "Matika Sookdhis",
+              "Siwanad Wongwasin",
+              "Napat Chareancholwanich"
+            ]
+          },
+          {
+            "type": "Media Planner",
+            "members": [
+              "Apichit Rungjirapirat",
+              "Tanatip Tragoolsookheng",
+              "Tanatip Tragoolsookheng",
+              "Kritpop Siangsanoh"
+            ]
+          },
+          {
+            "type": "Website Developer",
+            "members": [
+              "Pathom Paiboonrattanakorn",
+              "Chawit U-Viengchai",
+              "Chanokthorn Uerpairojkit"
+            ]
+          }
+        ],
+        "members": []
+      },
+      {
+        "type": "Activation Team",
+        "subType": [
+          {
+            "type": "Activation Planner",
+            "members": [
+              "Kultida Siribunyarit",
+              "Chuanchalerm Kaweewat",
+              "Chompunut Kittidulyakan",
+              "Shine Lerdchanapakdee"
+            ]
+          },
+          {
+            "type": "Exhibition Designer",
+            "members": [
+              "Yanakorn Ouisompong",
+              "Chuleeporn Pitaksupsin",
+              "Thunradee Sriudonporn",
+              "Pratchayapol Lertwicha"
+            ]
+          }
+        ],
+        "members": []
+      }
+    ]
+  },
+  {
+    "col": 2,
+    "content": [
+      {
+        "type": "Design Team",
+        "subType": [
+          { "type": "Art Director", "members": ["Varinlada Wasinanont"] },
+          {
+            "type": "Graphic Designer",
+            "members": [
+              "Janejira Taechakampu",
+              "Jaelaka Lalitrojwong",
+              "Virakarn Nutirong"
+            ]
+          }
+        ],
+        "members": []
+      },
+      {
+        "type": "Partnership Team",
+        "subType": [],
+        "members": [
+          "Chutimon Rittimanomai",
+          "Boonpaween Jittungboonya",
+          "Nuansiri Worametaviwat",
+          "Napae Terapigitera",
+          "Wannaphan Naksata"
+        ]
+      }
+    ]
+  },
+  {
+    "col": 3,
+    "content": [
+      {
+        "type": "Production Team",
+        "subType": [
+          {
+            "type": "Venue coordinator",
+            "members": ["Phithak Wijit", "Apichaya Promjart"]
+          },
+          {
+            "type": "Stage",
+            "members": [
+              "Pasaporn Pokowatkrairitk",
+              "Paveegorn Mahannop",
+              "Pichaya Chaiyanont"
+            ]
+          },
+          { "type": "Technical Support", "members": ["Kessawa Palanund"] },
+          { "type": "Photographer", "members": ["Krid Karnsomdee"] },
+          { "type": "Videographer", "members": ["Napon Jaturapuchapornpong"] }
+        ],
+        "members": []
+      }
+    ]
+  }
+]

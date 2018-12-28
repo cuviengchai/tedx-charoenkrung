@@ -12,17 +12,21 @@ const Item = styled.div`
   }
 `
 const SelectedItem = styled.div`
-  background-color: red;
-  color: white;
+  background-color: white;
+  color: red;
   text-align: center;
   padding: 20px;
 `
 
 const MenuItemStyle = styled(Menu.Item)`
   &.active {
-    background-color: #db2828 !important;
-    color: #fff !important;
+    background-color: #fff !important;
+    color: red !important;
   }
+`
+
+const NavbarMenu = styled(Menu)`
+  background-color: #fff !important;
 `
 
 const NavItem = ({ pageName, selected }) =>
@@ -46,8 +50,8 @@ class Navbar extends React.Component {
   render() {
     const { selected } = this.state
     return (
-      <Menu fixed="top" fluid={true} size="small">
-        <Container>
+      <Container>
+        <NavbarMenu fixed="top" fluid={true} text stackable>
           <Menu.Item as="a">
             <Image
               size="tiny"
@@ -66,8 +70,8 @@ class Navbar extends React.Component {
               </MenuItemStyle>
             </Link>
           ))}
-        </Container>
-      </Menu>
+        </NavbarMenu>
+      </Container>
     )
   }
 }
