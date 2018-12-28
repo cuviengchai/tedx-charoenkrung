@@ -3,9 +3,10 @@ import autoBind from "react-autobind"
 import SponsorItem from "../components/Sponsors/SponsorItem"
 import React from "react"
 import styled from "styled-components"
-import { Container, Grid, Responsive, Segment } from "semantic-ui-react"
+import { Container, Grid, Responsive, Segment, Image } from "semantic-ui-react"
 import Speakers from "../components/Speakers"
 import Volunteers from "../components/Volunteers"
+import DotsMatter from "../components/DotsMatter"
 
 class Attend extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Attend extends React.Component {
   render() {
     return (
       <Layout pageName="Attend">
+        <DotsMatter />
         <Speakers />
         <Volunteers />
       </Layout>
