@@ -53,7 +53,7 @@ const SpeakerContainer = styled.div`
   text-align: center;
   bottom: 0;
   height: auto;
-  width: 90%;
+  width: 100%;
   margin: 0 0 0 0;
 `
 
@@ -117,7 +117,7 @@ class Speakers extends React.Component {
     this.renderSpeakers = this.renderSpeakers.bind(this)
   }
   componentDidMount(props) {
-    fetch("./static/speakers/speakers.JSON")
+    fetch("./static/attend-page/speakers.JSON")
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -134,17 +134,27 @@ class Speakers extends React.Component {
         <Responsive maxWidth={1000}>
           <Grid columns={1} centered padded>
             {this.state.speakers.map((speaker, idx) => (
-              <Grid.Column width={16}>
-                <SpeakerItemMobile speaker={speaker} key={idx} />
+              <Grid.Column width={16} key={"speaker-column" + idx}>
+                <SpeakerItemMobile
+                  speaker={speaker}
+                  key={"speaker-item" + idx}
+                />
               </Grid.Column>
             ))}
           </Grid>
         </Responsive>
         <Responsive minWidth={1001}>
-          <Grid columns={4} stackable centered padded>
+          <Grid
+            columns={4}
+            stackable
+            centered
+            padded
+            padded="vertically"
+            textAlign="center"
+          >
             {this.state.speakers.map((speaker, idx) => (
-              <Grid.Column width={4}>
-                <SpeakerItem speaker={speaker} key={idx} />
+              <Grid.Column width={4} key={"speaker-column" + idx}>
+                <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
               </Grid.Column>
             ))}
           </Grid>

@@ -43,7 +43,7 @@ class Volunteers extends React.Component {
     this.renderVolunteers = this.renderVolunteers.bind(this)
   }
   componentDidMount() {
-    fetch("./static/volunteers.JSON")
+    fetch("./static/attend-page/volunteers.JSON")
       .then(res => res.json())
       .then(res => {
         console.log("RES: ", res)
@@ -56,16 +56,16 @@ class Volunteers extends React.Component {
   renderVolunteers() {
     console.log("Vol:", this.state.volunteers)
     const { isLoaded, volunteers } = this.state
-    return this.state.volunteers.map((col, idx0) => (
-      <Grid.Column>
+    return volunteers.map((col, idx0) => (
+      <Grid.Column key={"col" + idx0}>
         {_.get(col, "content", []).map((it, idx1) => (
-          <Content>
+          <Content key={"col" + idx0 + "content" + idx1}>
             <MainVolunteerType key={"mainType" + idx1}>
               {_.get(it, "type", "Nontype")}
             </MainVolunteerType>
             {_.get(it, "subType", []).length !== 0 ? (
               _.get(it, "subType", []).map((subType, idx2) => (
-                <div>
+                <div key={"subType-" + _.get(subType, "type", "undefined")}>
                   <SubVolunteerType key={"subType" + idx2}>
                     {_.get(subType, "type", "undefined")}
                   </SubVolunteerType>
