@@ -5,7 +5,6 @@ import videolist from '../content/video-page/videolist.json'
 
 import videoblog from '../content/video-page/videoblog.json'
 const VideoPage = props => {
-  console.log(videolist)
   return (
     <Layout pageName="video" color='teal'>
       <BlogContainer blogContent={videoblog}/>

@@ -5,15 +5,25 @@ const Card = {
     MyContainer: styled.div`
         display: flex;
         flex-direction: column;
-        margin-bottom:0.8rem;
+        margin : 0 0.5rem 0.8rem;
         cursor: pointer;
         @media screen and (max-width: 990px) {
             flex-direction: row;
         }
     `,
+    Image: styled.img`
+        width: 180px;
+        @media screen and (max-width: 1240px) {
+            width: 160px;
+        }
+        @media screen and (max-width: 990px) {
+            height: 120px;
+        }
+    `,
     TextBox: styled.div`
         display: flex;
         flex-direction: column;
+        margin: 0.5rem 0rem;
         @media screen and (max-width: 990px) {
             margin: 0rem 2rem;
         }
@@ -28,13 +38,14 @@ const Card = {
     `,
     Description: styled.p`
         font-size: 0.8rem;
+        margin-bottom: 0.2rem;
     `
 }    
 const VideoCard = ({video, onClickVideo}) => {
     const { image, title, card} = video
     return (
         <Card.MyContainer onClick={ () => { onClickVideo(video) } }>
-            <Image src={image} size='medium'/>
+            <Card.Image src={image} />
             <Card.TextBox>
                 <Card.Title> {title} </Card.Title>
                 <Card.Description> {card} </Card.Description>

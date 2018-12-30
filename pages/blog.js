@@ -56,7 +56,7 @@ export default withRouter(class BlogPage extends Component {
     }
     render(){
         const blogIndex = this.props.router.query.blogIndex
-        console.log(blogIndex)
+        // console.log(blogIndex)
         return (
             <Layout pageName="video" color='teal'>
                 <h1>Blog Page</h1>
