@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { Container, Segment, Grid, Responsive, Image } from "semantic-ui-react"
 
 const DotsMatterHeader = styled.div`
-  font-family: HelveticaNeue;
   font-size: 22px;
   font-weight: normal;
   font-style: normal;
@@ -12,10 +11,10 @@ const DotsMatterHeader = styled.div`
   text-align: left;
   color: #000000;
   padding-bottom: 1em;
+  font-family: "Helvetica Neue";
 `
 
 const DotsMatterContent = styled.div`
-  font-family: HelveticaNeue;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -24,6 +23,7 @@ const DotsMatterContent = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  font-family: "Helvetica Neue";
 `
 
 const DotsMatterIcon = styled(Image)`

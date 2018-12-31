@@ -8,7 +8,6 @@ const MainVolunteerType = styled.div`
 `
 
 const VolunteerMember = styled.div`
-  font-family: HelveticaNeue;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -17,20 +16,25 @@ const VolunteerMember = styled.div`
   letter-spacing: normal;
   text-align: left;
   color: #000000;
+  font-family: "Helvetica Neue";
 `
 
 const SubVolunteerType = styled.div`
   font-style: italic;
   color: #6b6b6b;
+  padding-top: 0.25em;
+  font-family: "Helvetica Neue";
 `
 
 const Content = styled.div`
   padding-bottom: 1em;
+  font-family: "Helvetica Neue";
 `
 
 const VolunteerHeader = styled.div`
   padding-top: 1em;
   padding-bottom: 4em;
+  font-family: "Helvetica Neue";
 `
 
 class Volunteers extends React.Component {
