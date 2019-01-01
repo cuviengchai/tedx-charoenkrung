@@ -45,7 +45,7 @@ class Navbar extends React.Component {
     { url: "/attend", pageName: "Attend" },
     { url: "/", pageName: "Partner" },
     { url: "/about", pageName: "About" },
-    { url: "/sponsors", pageName: "Sponsors" }
+    { url: "/partnership", pageName: "Partnership" }
   ]
   render() {
     const { selected } = this.state
