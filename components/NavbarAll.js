@@ -221,8 +221,6 @@ class NavbarAll extends React.Component {
 
   render() {
     const { selected, isMobile } = this.state
-    console.log("NAVBAR: ", selected, isMobile)
-    console.log("hit or miss ", this.state.selected === "Home")
     // return this.renderNonMobile()
     return <div>{isMobile ? <NavbarMobile /> : this.renderNonMobile()}</div>
   }

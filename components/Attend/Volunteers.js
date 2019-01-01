@@ -14,7 +14,6 @@ const VolunteerMember = styled.div`
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  text-align: left;
   color: #000000;
   font-family: "Helvetica Neue";
 `
@@ -29,12 +28,41 @@ const SubVolunteerType = styled.div`
 const Content = styled.div`
   padding-bottom: 1em;
   font-family: "Helvetica Neue";
+  @media only screen and (max-width: 1023px) {
+    text-align: center;
+    MainVolunteerType,
+    VolunteerMember,
+    SubVolunteerType,
+    SubVolunteerType VolunteerMember {
+      text-align: center !important;
+    }
+  }
 `
 
 const VolunteerHeader = styled.div`
   padding-top: 1em;
   padding-bottom: 4em;
   font-family: "Helvetica Neue";
+  @media only screen and (max-width: 1023px) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+`
+const VolunteerContainer = styled.div`
+  display: initial;
+  @media only screen and (max-width: 1023px) {
+    display: none;
+  }
+`
+const VolunteerContainerMobile = styled.div`
+  display: none;
+  @media only screen and (max-width: 1023px) {
+    display: initial;
+    test-align: center;
+  }
 `
 
 class Volunteers extends React.Component {
@@ -58,7 +86,6 @@ class Volunteers extends React.Component {
       })
   }
   renderVolunteers() {
-    console.log("Vol:", this.state.volunteers)
     const { isLoaded, volunteers } = this.state
     return volunteers.map((col, idx0) => (
       <Grid.Column key={"col" + idx0}>
@@ -101,9 +128,16 @@ class Volunteers extends React.Component {
       <div>
         <Image src="static/images/attend/Volunteers.png" size="huge" />
         <VolunteerHeader>Every dots matter when together</VolunteerHeader>
-        <Grid columns={4} stackable>
-          {this.state.isLoaded ? this.renderVolunteers() : null}
-        </Grid>
+        <VolunteerContainer>
+          <Grid columns={4} stackable>
+            {this.state.isLoaded ? this.renderVolunteers() : null}
+          </Grid>
+        </VolunteerContainer>
+        <VolunteerContainerMobile>
+          <Grid columns={1} centered textAlign="center">
+            {this.state.isLoaded ? this.renderVolunteers() : null}
+          </Grid>
+        </VolunteerContainerMobile>
       </div>
     )
   }
