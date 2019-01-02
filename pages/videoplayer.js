@@ -24,7 +24,6 @@ export default withRouter(class VideoPlayerPage extends Component {
             })
     }
     render(){
-        // console.log(this.props.router.query)
         const videoIndex = this.props.router.query.videoIndex
         return (
             <Layout pageName="video" color='teal'>

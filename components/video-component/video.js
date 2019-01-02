@@ -2,7 +2,7 @@ import React from "react"
 import { Embed } from "semantic-ui-react"
 import VideoDetail from "./video-detail"
 const VideoPlayer = ({ video }) => {
-  const { image, id } = video
+  const { image, id, detailsContent, transcriptContent } = video
   return (
     <div>
       <Embed
@@ -19,7 +19,7 @@ const VideoPlayer = ({ video }) => {
         placeholder={image}
         source="youtube"
       />
-      <VideoDetail />
+      <VideoDetail detailsContent={detailsContent} transcriptContent={transcriptContent} />
     </div>
   )
 }
