@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic"
 import MetaTags from "react-meta-tags"
 import { Container, Grid } from "semantic-ui-react"
-const NavbarAll = dynamic(import("./NavbarAll"), {
+const Navbar = dynamic(import("./Navbar"), {
   loading: () => <p>loading</p>
 })
 const Layout = props => {
@@ -16,11 +16,7 @@ const Layout = props => {
           src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
         />
       </MetaTags>
-      {isMobile == null ? (
-        <NavbarAll pageName={props.pageName} isMobile={false} />
-      ) : (
-        <NavbarAll pageName={props.pageName} isMobile={isMobile} />
-      )}
+      <Navbar pageName={props.pageName} />
       <Container style={{ marginTop: "7em" }}>{props.children}</Container>
     </div>
   )

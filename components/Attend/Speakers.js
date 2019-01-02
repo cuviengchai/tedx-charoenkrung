@@ -161,6 +161,7 @@ class Speakers extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      width: 0,
       isLoaded: false,
       speakers: []
     }
@@ -174,45 +175,65 @@ class Speakers extends React.Component {
           speakers: res
         })
       })
-      .then(this.setState({ isLoaded: true }))
+      .then(() => {
+        this.setState({ isLoaded: true })
+        window.addEventListener("resize", this.onResize)
+        this.onResize()
+      })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize)
+  }
+
+  onResize = () => {
+    this.setState({
+      width:
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth
+    })
   }
 
   renderSpeakers() {
-    const { isMobile } = this.state
+    const { width } = this.state
     return (
       <div>
-        {/* <SpeakerContainerMobile> */}
-        <Grid
-          columns={2}
-          centered
-          padded
-          padded="vertically"
-          textAlign="center"
-        >
-          {this.state.speakers.map((speaker, idx) => (
-            <Grid.Column width={8} centered textAlign="center">
-              <SpeakerItemMobile speaker={speaker} key={"speaker-item" + idx} />
-            </Grid.Column>
-          ))}
-        </Grid>
-
-        {/* </SpeakerContainerMobile> */}
-        <SpeakerContainer>
+        {width <= 1023 ? (
           <Grid
-            columns={4}
-            stackable
+            columns={2}
             centered
             padded
             padded="vertically"
             textAlign="center"
           >
             {this.state.speakers.map((speaker, idx) => (
-              <Grid.Column width={4} key={"speaker-column" + idx}>
-                <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
+              <Grid.Column width={8} centered textAlign="center">
+                <SpeakerItemMobile
+                  speaker={speaker}
+                  key={"speaker-item" + idx}
+                />
               </Grid.Column>
             ))}
           </Grid>
-        </SpeakerContainer>
+        ) : (
+          <SpeakerContainer>
+            <Grid
+              columns={4}
+              stackable
+              centered
+              padded
+              padded="vertically"
+              textAlign="center"
+            >
+              {this.state.speakers.map((speaker, idx) => (
+                <Grid.Column width={4} key={"speaker-column" + idx}>
+                  <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
+                </Grid.Column>
+              ))}
+            </Grid>
+          </SpeakerContainer>
+        )}
       </div>
     )
   }

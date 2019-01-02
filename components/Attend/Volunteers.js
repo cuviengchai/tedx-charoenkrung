@@ -16,6 +16,7 @@ const VolunteerMember = styled.div`
   letter-spacing: normal;
   color: #000000;
   font-family: "Helvetica Neue";
+  text-align: left;
 `
 
 const SubVolunteerType = styled.div`
@@ -28,27 +29,20 @@ const SubVolunteerType = styled.div`
 const Content = styled.div`
   padding-bottom: 1em;
   font-family: "Helvetica Neue";
-  @media only screen and (max-width: 1023px) {
-    text-align: center;
-    MainVolunteerType,
-    VolunteerMember,
-    SubVolunteerType,
-    SubVolunteerType VolunteerMember {
-      text-align: center !important;
-    }
-  }
+  text-align: left;
 `
 
 const VolunteerHeader = styled.div`
   padding-top: 1em;
   padding-bottom: 4em;
   font-family: "Helvetica Neue";
+  text-align: left;
   @media only screen and (max-width: 1023px) {
     height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
   }
 `
 const VolunteerContainer = styled.div`
@@ -61,7 +55,7 @@ const VolunteerContainerMobile = styled.div`
   display: none;
   @media only screen and (max-width: 1023px) {
     display: initial;
-    test-align: center;
+    text-align: left;
   }
 `
 

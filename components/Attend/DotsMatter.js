@@ -1,3 +1,4 @@
+import Link from "next/link"
 import React from "react"
 import styled from "styled-components"
 import { Grid, Image, Modal, Button } from "semantic-ui-react"
@@ -53,7 +54,7 @@ const DotsMatterAllHeader = styled.div`
   grid-template-rows: auto auto;
   // text-align: center;
   @media only screen and (max-width: 1023px) {
-    grid-row-gap: 2em;
+    grid-row-gap: 4em;
   }
 `
 const YearContent = styled.div`
@@ -153,9 +154,11 @@ const DotsMatter = props => {
                 และกิจกรรมดีๆ เพื่อสร้างชุมชนของ “คนลงมือทำ” และก้าวเข้าสู่
                 “กรุงเจริญ” ไปด้วยกัน
               </DotsMatterDetail>
-              <Button color="red" fluid>
-                Watch Videos
-              </Button>
+              <Link href="/video">
+                <Button color="red" fluid>
+                  Watch Videos
+                </Button>
+              </Link>
             </div>
           </YearContent>
         </div>
