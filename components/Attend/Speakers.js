@@ -3,7 +3,8 @@ import styled from "styled-components"
 import { Grid, Responsive, Image } from "semantic-ui-react"
 
 const Text = styled.div`
-  color: white;
+  color: white !important;
+
   font-size: 20px;
   position: absolute;
   top: 50%;
@@ -12,10 +13,11 @@ const Text = styled.div`
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  font-family: "Helvetica Neue";
 `
 
 const SpeakerImage = styled.img`
-  width: inherit;
+  width: 100%;
   height: auto;
 `
 
@@ -32,17 +34,22 @@ const Overlay = styled.div`
   transition: 0.5s ease;
 `
 
+const MobileOverlay = styled.div`
+  position: absolute;
+  // bottom: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  opacity: 0;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  transition: 0.5s ease;
+`
+
 const SpeakerImageContainer = styled.div`
   width: inherit;
-  height: inherit;
-  &:hover ${Overlay} {
-    bottom: 0;
-    height: 100%;
-  }
-`
-const SpeakerImageContainerMobile = styled.div`
-  width: inherit;
-  height: inherit;
+  text-align: center;
   &:hover ${Overlay} {
     bottom: 0;
     height: 100%;
@@ -50,19 +57,61 @@ const SpeakerImageContainerMobile = styled.div`
 `
 
 const SpeakerContainer = styled.div`
+  display: initial;
   text-align: center;
   bottom: 0;
   height: auto;
+  margin: 0 0 !important;
   width: 100%;
-  margin: 0 0 0 0;
+  @media only screen and (max-width: 1023px) {
+    display: none;
+  }
 `
-
+const SpeakerContainerMobile = styled.div`
+  display: none;
+  // text-align: center;
+  bottom: 0;
+  height: auto;
+  margin: 0 0 !important;
+  width: 100%;
+  @media only screen and (max-width: 1023px) {
+    display: initial;
+    ${MobileOverlay} {
+      top: 0;
+      bottom: 0;
+      opacity: ${props => (props.isActive === true ? "0.9" : " 0")};
+    }
+  }
+`
 const SpeakerName = styled.div`
   text-align: center;
+  font-family: "Helvetica Neue";
+  @media only screen and (max-width: 1023px) {
+    font-size: 25px;
+  }
 `
 const SpeakerHeader = styled.div`
   padding-top: 1em;
   padding-bottom: 4em;
+  font-family: "Helvetica Neue";
+`
+
+const SpeakerDetailsMobile = styled.div`
+  background-color: gray;
+  color: white;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-family: "Helvetica Neue";
+`
+const SpeakerHeaderContent = styled.div`
+  @media only screen and (max-width: 1023px) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 const SpeakerItem = props => {
@@ -81,28 +130,29 @@ const SpeakerItem = props => {
   )
 }
 
-const SpeakerDetailsMobile = styled.div`
-  background-color: gray;
-  opacity: 0.9;
-  text-align: center;
-  width: inherit;
-  height: inherit;
-`
-
 class SpeakerItemMobile extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { ...props.speaker, isActive: false }
+    this.state = { ...props.speaker, isActive: false, isMobile: props.isMobile }
+  }
+  onClick = () => {
+    this.setState({ isActive: !this.state.isActive })
   }
   render() {
     return (
-      <div onClick={() => this.setState({ isActive: !this.state.isActive })}>
-        {this.state.isActive ? (
+      <SpeakerContainerMobile
+        onClick={this.onClick}
+        isActive={this.state.isActive}
+      >
+        <SpeakerImageContainer>
           <SpeakerImage src={this.state.image} />
-        ) : (
-          <SpeakerDetailsMobile>{this.state.details}</SpeakerDetailsMobile>
-        )}
-      </div>
+          <MobileOverlay>
+            <Text>{this.state.details}</Text>
+          </MobileOverlay>
+        </SpeakerImageContainer>
+        <SpeakerName>{this.state.eng_name}</SpeakerName>
+        <SpeakerName>{this.state.thai_name}</SpeakerName>
+      </SpeakerContainerMobile>
     )
   }
 }
@@ -111,6 +161,7 @@ class Speakers extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      width: 0,
       isLoaded: false,
       speakers: []
     }
@@ -124,17 +175,40 @@ class Speakers extends React.Component {
           speakers: res
         })
       })
-      .then(this.setState({ isLoaded: true }))
+      .then(() => {
+        this.setState({ isLoaded: true })
+        window.addEventListener("resize", this.onResize)
+        this.onResize()
+      })
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onResize)
+  }
+
+  onResize = () => {
+    this.setState({
+      width:
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth
+    })
   }
 
   renderSpeakers() {
-    console.log
+    const { width } = this.state
     return (
-      <SpeakerContainer>
-        <Responsive maxWidth={1000}>
-          <Grid columns={1} centered padded>
+      <div>
+        {width <= 1023 ? (
+          <Grid
+            columns={2}
+            centered
+            padded
+            padded="vertically"
+            textAlign="center"
+          >
             {this.state.speakers.map((speaker, idx) => (
-              <Grid.Column width={16} key={"speaker-column" + idx}>
+              <Grid.Column width={8} centered textAlign="center">
                 <SpeakerItemMobile
                   speaker={speaker}
                   key={"speaker-item" + idx}
@@ -142,34 +216,38 @@ class Speakers extends React.Component {
               </Grid.Column>
             ))}
           </Grid>
-        </Responsive>
-        <Responsive minWidth={1001}>
-          <Grid
-            columns={4}
-            stackable
-            centered
-            padded
-            padded="vertically"
-            textAlign="center"
-          >
-            {this.state.speakers.map((speaker, idx) => (
-              <Grid.Column width={4} key={"speaker-column" + idx}>
-                <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
-              </Grid.Column>
-            ))}
-          </Grid>
-        </Responsive>
-      </SpeakerContainer>
+        ) : (
+          <SpeakerContainer>
+            <Grid
+              columns={4}
+              stackable
+              centered
+              padded
+              padded="vertically"
+              textAlign="center"
+            >
+              {this.state.speakers.map((speaker, idx) => (
+                <Grid.Column width={4} key={"speaker-column" + idx}>
+                  <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
+                </Grid.Column>
+              ))}
+            </Grid>
+          </SpeakerContainer>
+        )}
+      </div>
     )
   }
 
   render() {
     return (
       <div>
-        <Image src="static/images/attend/Doers.png" size="large" />
-        <SpeakerHeader>
-          Our Speakers and Performers in TEDxCharoenkrung 2019
-        </SpeakerHeader>
+        <SpeakerHeaderContent>
+          <Image src="static/images/attend/Doers.png" size="large" />
+          <SpeakerHeader>
+            Our Speakers and Performers in TEDxCharoenkrung 2019
+          </SpeakerHeader>
+        </SpeakerHeaderContent>
+
         {!this.state.isLoaded ? null : this.renderSpeakers()}
       </div>
     )
