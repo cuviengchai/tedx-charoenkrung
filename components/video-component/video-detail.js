@@ -37,6 +37,7 @@ export default class VideoDetail extends Component {
           <p key={`trancript-${idx}`}> {it} </p>
         ))}
         </Segment>
+        <br />
       </div>
     )
   }

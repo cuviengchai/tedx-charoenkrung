@@ -6,24 +6,33 @@ import Slider from "react-slick"
 import { Icon } from "semantic-ui-react"
 const Container = styled.div`
   .slick-prev {
-    float: left;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: black;
     height: 30%;
-    padding: 5%;
+    width: 10%;
+    padding-left: 3%;
+    margin-left: 0;
     opacity: 0.9;
     border-radius: 20%;
     z-index: 1;
   }
   .slick-next {
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
     background: black;
     height: 30%;
-    padding: 5%;
+    width: 10%;
+    padding-right: 3%;
+    margin-right: 0;
     opacity: 0.9;
     border-radius: 20%;
     z-index: 1;
+  }
+  .slick-next:before, .slick-prev:before {
+    font-size: 45px;
   }
 `
 const Desktop = styled.img`

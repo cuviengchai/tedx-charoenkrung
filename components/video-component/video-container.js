@@ -17,15 +17,15 @@ const VideoContainer = () => {
             <Grid.Row>
                 <h2 > Video Title </h2>
             </Grid.Row>
-            <Grid.Row columns={2}>
+            <Grid.Row>
             <Grid>
-                <Grid.Column mobile={16} tablet={10} computer={10} >
+                <Grid.Column mobile={16} tablet={16} computer={10} >
                     <VideoPlayer />
                 </Grid.Column>
-                <Grid.Column tablet={6} computer={6}>
-                    <Responsive >
+                <Grid.Column mobile={16} tablet={16} computer={10}>
+                    
                         <VideoItemContainer videolist={VideoList} onSelectVideo={(video) => {console.log(video)}}/>
-                    </Responsive>
+                    
                 </Grid.Column>
             </Grid>
             </Grid.Row>
