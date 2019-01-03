@@ -35,7 +35,7 @@ export default withRouter(class VideoPlayerPage extends Component {
                             <Grid.Column mobile={16} tablet={16} computer={10} >
                                 <VideoPlayer video={VideoList[videoIndex]}/>
                             </Grid.Column>
-                            <Grid.Column tablet={6} computer={6}>
+                            <Grid.Column mobile={16} tablet={16} computer={6}>
                                 <Responsive >
                                     <VideoItemContainer videolist={VideoList} onSelectVideo={(video) => {this.onSelectVideo(video)}}/>
                                 </Responsive>

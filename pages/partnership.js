@@ -16,13 +16,13 @@ const Partners = () => (
     <br />
     <Header> In 2018, we were thrilled to work with </Header>
     <Header size="tiny"> PATRON PARTNER </Header>
-    <CardContainer Blogs={FirstPartners} size ='6'/>
+    <CardContainer Blogs={FirstPartners} size ='5'/>
     <br />
     <Header size="tiny"> PLATINUM PARTNERS </Header>
-    <CardContainer Blogs={SecondPartners} size ='6'/>
+    <CardContainer Blogs={SecondPartners} size ='5'/>
     <br />  
     <Header size="tiny"> GOLD PARTNERS </Header>
-    <CardContainer Blogs={ThirdPartners} size ='6'/>     
+    <CardContainer Blogs={ThirdPartners} size ='5'/>     
     </Container>
 </Layout>
 )

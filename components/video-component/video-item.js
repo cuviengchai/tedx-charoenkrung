@@ -6,7 +6,7 @@ const VideoItem = ({video, onSelectVideo}) => {
   return (
       <Item onClick={() => onSelectVideo(video)}>
         <Item.Image size='small' src={image} />
-        <Item.Content>
+        <Item.Content >
           {/* <Item.Header> {title} </Item.Header> */}
           <Item.Meta> {title}</Item.Meta>
           <Item.Description>
