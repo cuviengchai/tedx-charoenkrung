@@ -88,25 +88,6 @@ const DotsMatterGalleryMobile = styled(Grid)`
   }
 `
 
-// const DotsMatterGalleryModal = styled(Modal)`
-//   content{
-//     top                   : '50%',
-//     left                  : '50%',
-//     right                 : 'auto',
-//     bottom                : 'auto',
-//     marginRight           : '-50%',
-//     transform             : 'translate(-50%, -50%)'
-//   }
-//   // margin: 0 auto !important;
-//   // // top: auto !important;
-//   // // left: auto !important;
-//   // top: 20% !important;
-//   // // bottom: auto !important;
-//   // left: 20% !important;
-//   // // right: auto !important;
-//   // transform-origin: center !important;
-// `
-
 const customStyles = {
   content: {
     top: "50%",
@@ -258,16 +239,6 @@ class DotsMatter extends React.Component {
                   this.onGalleryImageClicked(quote)
                 }}
               />
-              {/* <DotsMatterGalleryModal
-              trigger={<DotsMatterImages src={quote} size="medium" />}
-              basic
-              size="medium"
-              centered
-            > */}
-              {/* <Modal.Content> */}
-              {/* <Image src={quote} size="large" /> */}
-              {/* </Modal.Content> */}
-              {/* </DotsMatterGalleryModal> */}
             </Grid.Column>
           ))}
         </DotsMatterGalleryMobile>
