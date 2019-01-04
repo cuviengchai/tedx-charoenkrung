@@ -151,6 +151,7 @@ class Navbar extends React.Component {
   }
 
   onResize = () => {
+    this.setState({ isOpen: false, partnershipsOpen: false })
     if (this._isMounted) {
       const newWidth =
         window.innerWidth ||
@@ -160,7 +161,7 @@ class Navbar extends React.Component {
         width: newWidth
       })
       if (this.newWidth >= 1024) {
-        this.setState({ partnershipsOpen: false })
+        this.setState({ isOpen: false, partnershipsOpen: false })
       }
     }
   }

@@ -1,7 +1,8 @@
 import Link from "next/link"
 import React from "react"
 import styled from "styled-components"
-import { Grid, Image, Modal, Button } from "semantic-ui-react"
+import { Grid, Image, Button } from "semantic-ui-react"
+import Modal from "react-modal"
 
 const DotsMatterHeader = styled.div`
   font-size: 22px;
@@ -87,16 +88,16 @@ const DotsMatterGalleryMobile = styled(Grid)`
   }
 `
 
-const DotsMatterGalleryModal = styled(Modal)`
-  margin: 0 auto !important;
-  // top: auto !important;
-  // left: auto !important;
-  top: 20% !important;
-  // bottom: auto !important;
-  left: 20% !important;
-  // right: auto !important;
-  transform-origin: center !important;
-`
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
+  }
+}
 
 const DotsMatterDetail = styled.div`
   word-wrap: break-word;
@@ -112,114 +113,138 @@ const DotsMatterDetail = styled.div`
   margin: 1em 0em;
 `
 
-const DotsMatter = props => {
-  const quotes = [
-    "static/images/attend/quote1.jpg",
-    "static/images/attend/quote2.jpg",
-    "static/images/attend/quote3.jpg"
-  ]
-  return (
-    <div>
-      <DotsMatterAllHeader>
-        <div className="year">
-          <DotsMatterHeader>TEDxCharoenkrung 2017</DotsMatterHeader>
-          <DotsMatterInfo>17 December 2017 </DotsMatterInfo>
-          <DotsMatterInfo>WAREHOUSE30</DotsMatterInfo>
-          <DotsMatterInfo>Talk: 12.00-18.00</DotsMatterInfo>
-          {/* <DotsMatterHeader> READY SET GROW</DotsMatterHeader> */}
+class DotsMatter extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      quotes: [
+        "static/images/attend/quote1.jpg",
+        "static/images/attend/quote2.jpg",
+        "static/images/attend/quote3.jpg"
+      ],
+      modalIsOpen: false,
+      activeImageUrl: ""
+    }
+  }
 
-          <YearContent>
-            <div className="first-col">
-              <DotsMatterIcon
-                src="static/images/attend/ReadySetGrow.png"
-                size="large"
+  onGalleryImageClicked = url => {
+    this.setState({ activeImageUrl: url }, this.setState({ modalIsOpen: true }))
+  }
+
+  closeModal = () => {
+    this.setState({ activeImageUrl: "" }, this.setState({ modalIsOpen: false }))
+  }
+
+  render() {
+    const { quotes, activeImageUrl } = this.state
+    return (
+      <div>
+        <DotsMatterAllHeader>
+          <div className="year">
+            <DotsMatterHeader>TEDxCharoenkrung 2017</DotsMatterHeader>
+            <DotsMatterInfo>17 December 2017 </DotsMatterInfo>
+            <DotsMatterInfo>WAREHOUSE30</DotsMatterInfo>
+            <DotsMatterInfo>Talk: 12.00-18.00</DotsMatterInfo>
+            {/* <DotsMatterHeader> READY SET GROW</DotsMatterHeader> */}
+
+            <YearContent>
+              <div className="first-col">
+                <DotsMatterIcon
+                  src="static/images/attend/ReadySetGrow.png"
+                  size="large"
+                />
+              </div>
+              <div className="second-col">
+                <DotsMatterDetail>
+                  Ready Set Grow ทุกครั้งก่อนที่เราจะออกวิ่งไปสู่เส้นชัย
+                  เราต้องเตรียมตัวให้พร้อมก่อนเสมอ
+                  เช่นเดียวกับการออกวิ่งไปสู่การเปลี่ยนแปลงหรือเป้าหมายของชีวิตที่เราตั้งไว้
+                  มี3ขั้นตอนที่จะทำให้เราไปถึงเป้าหมายได้อย่างสมบูรณ์ <br />
+                  <br />
+                  ‘Ready’ หากคุณเป็นหนึ่งคนที่อยากเปลี่ยนแปลง เตรียมตัวให้พร้อม
+                  <br />
+                  <br /> ‘Set’ มองไปข้างหน้า กำหนดเป้าหมายของคุณให้ชัดเจน
+                  แล้วเริ่มทำมันซะ <br />
+                  <br />
+                  ‘Grow’ เรียนรู้ เปลี่ยนแปลง และเติบโต <br />
+                  <br />
+                  TEDxCharoenkrung
+                  ขอเป็นแรงผลักดันให้เรามาช่วยกันกำหนดอนาคตผ่านทอล์กอันทรงพลังของเหล่าสปีกเกอร์
+                  และกิจกรรมดีๆ เพื่อสร้างชุมชนของ “คนลงมือทำ” และก้าวเข้าสู่
+                  “กรุงเจริญ” ไปด้วยกัน
+                </DotsMatterDetail>
+                <Link href="/video">
+                  <Button color="red" fluid>
+                    Watch Videos
+                  </Button>
+                </Link>
+              </div>
+            </YearContent>
+          </div>
+          <div className="year">
+            <DotsMatterHeader>TEDxCharoenkrung 2018</DotsMatterHeader>
+            <DotsMatterInfo>Theme: DOTS MATTER</DotsMatterInfo>
+            <DotsMatterInfo>27 January 2019</DotsMatterInfo>
+            <DotsMatterInfo>At Prince Rama Theater</DotsMatterInfo>
+            <DotsMatterInfo>Talk: 13.00 - 18.00</DotsMatterInfo>
+            <DotsMatterInfo>After Party: 18.00 - 21.00</DotsMatterInfo>
+            <YearContent>
+              <div className="first-col">
+                <DotsMatterIcon
+                  src="static/images/attend/DotsMatter.png"
+                  size="large"
+                />
+              </div>
+              <div className="second-col">
+                {/* <DotsMatterHeader>Why Dots Matter?</DotsMatterHeader> */}
+                <DotsMatterDetail>
+                  จุดเล็กๆ แต่ละจุดอยู่กระจายกันออกไป
+                  อาจจะสามารถสร้างการเปลี่ยนแปลงให้กับสิ่งรอบๆตัวได้ในระดับหนึ่ง
+                  แต่เมื่อใดก็ตามที่จุดแต่ละจุดมาอยู่รวมกัน
+                  การเปลี่ยนแปลงที่ยิ่งใหญ่จะสามารถเกิดขึ้นได้อย่างแน่นอน <br />
+                  <br />
+                  Dots = people <br />
+                  <br />
+                  TEDxCharoenkrung เชื่อว่าคนหนึ่งคนเปรียบเสมือนจุดหนึ่งจุด
+                  มีจุดเล็กจุดใหญ่บ้างปะปนกันไปในสังคมไทย
+                  การรวมกลุ่มกันของจุดนั้น
+                  เป็นจุดเริ่มต้นสำคัญที่จะช่วยผลักดันให้เกิดพลังและแรงกระเพื่อมให้สังคมไทยเปลี่ยนแปลงไปในทิศทางที่ดีขึ้นได้
+                  ได้ลงมือทำในสิ่งที่อยากและร่วมกันสร้างสังคมในแบบที่หวังไปด้วยกัน
+                </DotsMatterDetail>
+              </div>
+            </YearContent>
+          </div>
+        </DotsMatterAllHeader>
+        <DotsMatterGallery columns={3}>
+          {quotes.map((quote, idx) => (
+            <Grid.Column key={"quote-nonmobile-" + idx}>
+              <DotsMatterImages src={quote} size="medium" />
+            </Grid.Column>
+          ))}
+        </DotsMatterGallery>
+        <DotsMatterGalleryMobile columns={3}>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+          >
+            <Image src={activeImageUrl} size="large" />
+          </Modal>
+          {quotes.map((quote, idx) => (
+            <Grid.Column key={"quote-mobile-" + idx}>
+              <DotsMatterImages
+                src={quote}
+                size="medium"
+                onClick={() => {
+                  this.onGalleryImageClicked(quote)
+                }}
               />
-            </div>
-            <div className="second-col">
-              <DotsMatterDetail>
-                Ready Set Grow ทุกครั้งก่อนที่เราจะออกวิ่งไปสู่เส้นชัย
-                เราต้องเตรียมตัวให้พร้อมก่อนเสมอ
-                เช่นเดียวกับการออกวิ่งไปสู่การเปลี่ยนแปลงหรือเป้าหมายของชีวิตที่เราตั้งไว้
-                มี3ขั้นตอนที่จะทำให้เราไปถึงเป้าหมายได้อย่างสมบูรณ์ <br />
-                <br />
-                ‘Ready’ หากคุณเป็นหนึ่งคนที่อยากเปลี่ยนแปลง เตรียมตัวให้พร้อม
-                <br />
-                <br /> ‘Set’ มองไปข้างหน้า กำหนดเป้าหมายของคุณให้ชัดเจน
-                แล้วเริ่มทำมันซะ <br />
-                <br />
-                ‘Grow’ เรียนรู้ เปลี่ยนแปลง และเติบโต <br />
-                <br />
-                TEDxCharoenkrung
-                ขอเป็นแรงผลักดันให้เรามาช่วยกันกำหนดอนาคตผ่านทอล์กอันทรงพลังของเหล่าสปีกเกอร์
-                และกิจกรรมดีๆ เพื่อสร้างชุมชนของ “คนลงมือทำ” และก้าวเข้าสู่
-                “กรุงเจริญ” ไปด้วยกัน
-              </DotsMatterDetail>
-              <Link href="/video">
-                <Button color="red" fluid>
-                  Watch Videos
-                </Button>
-              </Link>
-            </div>
-          </YearContent>
-        </div>
-        <div className="year">
-          <DotsMatterHeader>TEDxCharoenkrung 2018</DotsMatterHeader>
-          <DotsMatterInfo>Theme: DOTS MATTER</DotsMatterInfo>
-          <DotsMatterInfo>27 January 2019</DotsMatterInfo>
-          <DotsMatterInfo>At Prince Rama Theater</DotsMatterInfo>
-          <DotsMatterInfo>Talk: 13.00 - 18.00</DotsMatterInfo>
-          <DotsMatterInfo>After Party: 18.00 - 21.00</DotsMatterInfo>
-          <YearContent>
-            <div className="first-col">
-              <DotsMatterIcon
-                src="static/images/attend/DotsMatter.png"
-                size="large"
-              />
-            </div>
-            <div className="second-col">
-              {/* <DotsMatterHeader>Why Dots Matter?</DotsMatterHeader> */}
-              <DotsMatterDetail>
-                จุดเล็กๆ แต่ละจุดอยู่กระจายกันออกไป
-                อาจจะสามารถสร้างการเปลี่ยนแปลงให้กับสิ่งรอบๆตัวได้ในระดับหนึ่ง
-                แต่เมื่อใดก็ตามที่จุดแต่ละจุดมาอยู่รวมกัน
-                การเปลี่ยนแปลงที่ยิ่งใหญ่จะสามารถเกิดขึ้นได้อย่างแน่นอน <br />
-                <br />
-                Dots = people <br />
-                <br />
-                TEDxCharoenkrung เชื่อว่าคนหนึ่งคนเปรียบเสมือนจุดหนึ่งจุด
-                มีจุดเล็กจุดใหญ่บ้างปะปนกันไปในสังคมไทย การรวมกลุ่มกันของจุดนั้น
-                เป็นจุดเริ่มต้นสำคัญที่จะช่วยผลักดันให้เกิดพลังและแรงกระเพื่อมให้สังคมไทยเปลี่ยนแปลงไปในทิศทางที่ดีขึ้นได้
-                ได้ลงมือทำในสิ่งที่อยากและร่วมกันสร้างสังคมในแบบที่หวังไปด้วยกัน
-              </DotsMatterDetail>
-            </div>
-          </YearContent>
-        </div>
-      </DotsMatterAllHeader>
-      <DotsMatterGallery columns={3}>
-        {quotes.map((quote, idx) => (
-          <Grid.Column key={"quote-nonmobile-" + idx}>
-            <DotsMatterImages src={quote} size="medium" />
-          </Grid.Column>
-        ))}
-      </DotsMatterGallery>
-      <DotsMatterGalleryMobile columns={3}>
-        {quotes.map((quote, idx) => (
-          <Grid.Column key={"quote-mobile-" + idx}>
-            <DotsMatterGalleryModal
-              trigger={<DotsMatterImages src={quote} size="medium" />}
-              basic
-              size="medium"
-              centered
-            >
-              <Modal.Content>
-                <Image src={quote} size="large" />
-              </Modal.Content>
-            </DotsMatterGalleryModal>
-          </Grid.Column>
-        ))}
-      </DotsMatterGalleryMobile>
-    </div>
-  )
+            </Grid.Column>
+          ))}
+        </DotsMatterGalleryMobile>
+      </div>
+    )
+  }
 }
 
 export default DotsMatter
