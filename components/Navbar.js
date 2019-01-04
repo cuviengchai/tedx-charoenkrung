@@ -1,6 +1,5 @@
 import Link from "next/link"
 import styled from "styled-components"
-import { Menu, Container, Image } from "semantic-ui-react"
 import Fade from "react-reveal/Fade"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -31,10 +30,9 @@ const Header = styled.nav`
   display: grid;
   grid-templates-columns: 1fr 1fr;
   grid-templates-rows: 1fr 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "header-image burger"
-    "header-content ."
-  ;
+    "header-content .";
   z-index: 10;
   background-color: white;
   width: 100%;
@@ -51,35 +49,41 @@ const Header = styled.nav`
     text-align: left;
   }
   text-align: right;
-  .burger{
+  .burger {
     margin: 10px 5px;
     display: initial;
   }
   ul {
-    display: flex:
+    display: flex;
     flex-direction: column;
     list-style-type: none;
-    
   }
-  @media only screen and (min-width: 1024px){
+  .dropdown {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+  }
+  @media only screen and (min-width: 1024px) {
     display: grid;
-    grid-templates-columns: 1fr 1fr;
-    grid-templates-rows: 1fr 1fr;
-    grid-template-areas:
-      "header-image header-content";
+    grid-templates-columns: 1fr 1fr 1fr;
+    grid-template-areas: "header-image burger header-content";
     ul {
       display: flex;
       flex-direction: row;
       list-style-type: none;
     }
-    .burger{
+    .burger {
       display: none;
     }
-
   }
 `
 
 const NavbarItem = styled.li`
+  justify-self: end;
+  text-align: right;
+  .dropdown-icon {
+    margin-left: 0.5em;
+  }
   &.active {
     color: red;
   }
@@ -89,6 +93,29 @@ const NavbarItem = styled.li`
   &:hover {
     color: ${props => (props.active ? "red" : "gray")};
   }
+  @media only screen and (max-width: 1023px) {
+    justify-self: start;
+    text-align: left;
+  }
+`
+
+const SubMenu = styled.div`
+  display: flex;
+  flex-direction: row;
+  @media only screen and (min-width: 1024px) {
+    flex-direction: column;
+`
+const SubNavbarItems = styled.div`
+display: flex;
+flex-direction: row;
+@media only screen and (min-width: 1024px) {
+  flex-direction: column;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.2);
+  ${NavbarItem} {
+    text-align: center !important;
+    background-color: white !important;
+
+  }
 `
 
 class Navbar extends React.Component {
@@ -97,7 +124,8 @@ class Navbar extends React.Component {
     this.state = {
       selected: this.props.pageName,
       width: 0,
-      isOpen: false
+      isOpen: false,
+      partnershipsOpen: false
     }
   }
 
@@ -124,12 +152,16 @@ class Navbar extends React.Component {
 
   onResize = () => {
     if (this._isMounted) {
+      const newWidth =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth
       this.setState({
-        width:
-          window.innerWidth ||
-          document.documentElement.clientWidth ||
-          document.body.clientWidth
+        width: newWidth
       })
+      if (this.newWidth >= 1024) {
+        this.setState({ partnershipsOpen: false })
+      }
     }
   }
 
@@ -139,40 +171,95 @@ class Navbar extends React.Component {
     }
   }
 
-  renderNonMobile = () => (
-    <div>
-      <Header>
-        <HeaderImage>
-          <img src="static/images/tedx_logo_black.png" />
-        </HeaderImage>
-        <HeaderContent>
-          <Fade collapse when={this.state.isOpen || this.state.width >= 1024}>
-            <ul>
-              {this.pages.map((page, idx) => (
-                <Link href={page.url} key={"page-" + page.pageName}>
-                  <NavbarItem
-                    key={"item-" + idx}
-                    active={this.state.selected === page.pageName}
-                  >
-                    {page.pageName}
-                  </NavbarItem>
-                </Link>
-              ))}
-            </ul>
-          </Fade>
-        </HeaderContent>
-        <Burger>
-          <FontAwesomeIcon
-            icon="bars"
-            color="black"
-            size="lg"
-            className="burger"
-            onClick={this.onToggleHamburger}
-          />
-        </Burger>
-      </Header>
-    </div>
-  )
+  onPartnershipsClicked = () => {
+    // if (this.state.width <= 1023) {
+    this.setState({ partnershipsOpen: !this.state.partnershipsOpen })
+    // }
+  }
+
+  renderNonMobile = () => {
+    const mobileWidth = 1023
+    const { width, partnershipsOpen } = this.state
+    return (
+      <div>
+        <Header>
+          <HeaderImage>
+            <img src="static/images/tedx_logo_black.png" />
+          </HeaderImage>
+          <HeaderContent>
+            <Fade collapse when={this.state.isOpen || this.state.width >= 1024}>
+              <ul>
+                {this.pages.map((page, idx) => (
+                  <div>
+                    {page.pageName === "Partnerships" ? (
+                      <SubMenu>
+                        <NavbarItem
+                          key={"item-" + idx}
+                          active={this.state.selected === page.pageName}
+                          onClick={this.onPartnershipsClicked}
+                        >
+                          {page.pageName}
+                          <FontAwesomeIcon
+                            icon={
+                              width <= mobileWidth
+                                ? partnershipsOpen
+                                  ? "caret-left"
+                                  : "caret-right"
+                                : partnershipsOpen
+                                ? "caret-up"
+                                : "caret-down"
+                            }
+                            color="black"
+                            size="small"
+                            className="dropdown-icon"
+                          />
+                        </NavbarItem>
+                        <Fade
+                          left={width <= mobileWidth ? true : false}
+                          down={width > mobileWidth ? true : false}
+                          distance={width > mobileWidth ? "30%" : "30%"}
+                          duration={500}
+                          collapse
+                          when={this.state.partnershipsOpen}
+                        >
+                          <SubNavbarItems>
+                            <NavbarItem key={"sub-item-2017"} active={false}>
+                              2017
+                            </NavbarItem>
+                            <NavbarItem key={"sub-item-2018"} active={false}>
+                              2018
+                            </NavbarItem>
+                          </SubNavbarItems>
+                        </Fade>
+                      </SubMenu>
+                    ) : (
+                      <Link href={page.url} key={"page-" + page.pageName}>
+                        <NavbarItem
+                          key={"item-" + idx}
+                          active={this.state.selected === page.pageName}
+                        >
+                          {page.pageName}
+                        </NavbarItem>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </ul>
+            </Fade>
+          </HeaderContent>
+          <Burger>
+            <FontAwesomeIcon
+              icon="bars"
+              color="black"
+              size="lg"
+              className="burger"
+              onClick={this.onToggleHamburger}
+            />
+          </Burger>
+        </Header>
+      </div>
+    )
+  }
 
   render() {
     return this.renderNonMobile()
