@@ -16,7 +16,10 @@ const Layout = props => {
           src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
         />
       </MetaTags>
-      <Navbar pageName={props.pageName} />
+      <Navbar
+        pageName={props.pageName}
+        subPageName={props.subPageName ? props.subPageName : ""}
+      />
       <Container style={{ marginTop: "7em" }}>{props.children}</Container>
     </div>
   )
