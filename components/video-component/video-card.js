@@ -1,12 +1,20 @@
 import React from 'react'
-import { Image } from 'semantic-ui-react'
 import styled from 'styled-components'
 const Card = {
     MyContainer: styled.div`
         display: flex;
         flex-direction: column;
         margin : 0 0.5rem 0.8rem;
-        cursor: pointer;
+        opacity: 1;
+        transition: opacity 0.2s ease-in-out;
+        -moz-transition: opacity 0.2s ease-in-out;
+        -webkit-transition: opacity 0.2s ease-in-out;
+        &:hover {
+            opacity: 0.6;
+            transition: opacity 0.2s ease-in-out;
+            -moz-transition: opacity 0.2s ease-in-out;
+            -webkit-transition: opacity 0.2s ease-in-out;
+        }
         @media screen and (max-width: 990px) {
             flex-direction: row;
         }
