@@ -224,12 +224,16 @@ class Navbar extends React.Component {
                           when={this.state.partnershipsOpen}
                         >
                           <SubNavbarItems>
+                          <Link href={"/partnership?year=2017"}>
                             <NavbarItem key={"sub-item-2017"} active={false}>
                               2017
                             </NavbarItem>
+                          </Link>
+                          <Link href={"/partnership?year=2018"}>
                             <NavbarItem key={"sub-item-2018"} active={false}>
                               2018
                             </NavbarItem>
+                            </Link>
                           </SubNavbarItems>
                         </Fade>
                       </SubMenu>
