@@ -14,18 +14,13 @@ class Attend extends React.Component {
   render() {
     return (
       <Layout pageName="Attend">
-        <Responsive maxWidth={Responsive.onlyMobile.maxWidth}>
-          <DotsMatter isMobile={true} />
-          <AttendVideoPlayers isMobile={true} />
-          <Speakers isMobile={true} />
-          <Volunteers isMobile={true} />
-        </Responsive>
-        <Responsive minWidth={Responsive.onlyTablet.minWidth}>
-          <DotsMatter isMobile={false} />
-          <AttendVideoPlayers isMobile={false} />
-          <Speakers isMobile={false} />
-          <Volunteers isMobile={false} />
-        </Responsive>
+        <DotsMatter year="2017" key="info-2017" className="info-2017" />
+        <AttendVideoPlayers isMobile={true} />
+        <Speakers />
+        <DotsMatter year="2018" key="info-2018" className="info-2018" />
+
+        <Speakers is2019 />
+        <Volunteers isMobile={true} />
       </Layout>
     )
   }

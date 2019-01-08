@@ -4,6 +4,10 @@ import styled from "styled-components"
 import { Grid, Responsive, Item, Image } from "semantic-ui-react"
 import _ from "lodash"
 
+const LowerVideoPlayer = styled(VideoPlayer)`
+  z-index: -20 !important;
+`
+
 const VideoListImage = styled(Image)`
   opacity: 1;
   transition: opacity 0.2s ease-in-out;
@@ -63,7 +67,7 @@ class AttendVideoPlayer extends React.Component {
     const { videos, activeVideo } = this.state
     return (
       <div>
-        <VideoPlayer video={activeVideo} />
+        <LowerVideoPlayer video={activeVideo} />
         <VideoList videos={videos} onSelectVideo={this.onSelectVideo} />
       </div>
     )
