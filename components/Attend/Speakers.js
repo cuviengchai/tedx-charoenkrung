@@ -163,7 +163,8 @@ class Speakers extends React.Component {
     this.state = {
       width: 0,
       isLoaded: false,
-      speakers: []
+      speakers: [],
+      is2019: props.is2019
     }
     this.renderSpeakers = this.renderSpeakers.bind(this)
   }
@@ -239,12 +240,14 @@ class Speakers extends React.Component {
   }
 
   render() {
+    const { is2019 } = this.state
     return (
       <div>
         <SpeakerHeaderContent>
           <Image src="static/images/attend/Doers.png" size="large" />
           <SpeakerHeader>
-            Our Speakers and Performers in TEDxCharoenkrung 2019
+            Our Speakers and Performers in TEDxCharoenkrung{" "}
+            {is2019 ? "2019" : "2017"}
           </SpeakerHeader>
         </SpeakerHeaderContent>
 
