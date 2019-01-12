@@ -31,26 +31,25 @@ const MyContainer = styled.div`
 const TopSpace = styled.br`
     height: 4rem;
 `
-const BlogContainer = ({ blogContent }) => {
+const BlogContainer = ({ blogContent, left, right }) => {
     const { Header, LeftBlogs, RightBlogs, Contacts, VideoList } = blogContent
     return (
         <MyContainer>
         <Grid>
             <Grid.Row>
             { Header && <Blog content={Header} topicSize='large'/> }
-            { Header && <TopSpace /> }    
             </Grid.Row>
             <Grid.Row>
-            <Grid>
-                <Grid.Column mobile={16} computer={12} >
+            <Grid columns='equals'>
+                <Grid.Column mobile={16} computer={left} >
                 { VideoList && <VideoCardContainer videolist={VideoList} />}
                 { _.defaultTo(LeftBlogs, []).map(left => (
-                    <BlogColumn key={left.topic}>
+                    <Grid.Column key={left.topic}>
                         <Blog content={left} topicSize='small'/>
-                    </BlogColumn>
+                    </Grid.Column>
                 ))}
                 </Grid.Column>
-                <Grid.Column mobile={16} computer={4}>
+                <Grid.Column mobile={16} computer={right}>
                     { _.defaultTo(RightBlogs, []).map(right => (
                         <BlogColumn key={right.topic}>
                             <Blog content={right} topicSize='small'/>

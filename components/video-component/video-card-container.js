@@ -15,13 +15,13 @@ class VideoCardContainer extends Component {
     render() {
         const { videolist } = this.props
         return (
-            <Grid>
-                <Grid.Row>
-                    <Header size='medium' mobile={16} computer={16}> Videolist Blog</Header>
+            <Grid relaxed columns={4}>
+                <Grid.Row >
+                    <Header size='medium' mobile={16} computer={16}> Videolist</Header>
                 </Grid.Row>
                 <Grid.Row>
                 { _.defaultTo(videolist,[]).map((video, idx)=>(
-                    <Grid.Column key={`card-col-${idx}`}  mobile={16} computer={4}>
+                    <Grid.Column key={`card-col-${idx}`}>
                     <VideoCard key={`card-${idx}`} video={video} onClickVideo={ (video) => this.viewVideo(video) }/> 
                     </Grid.Column>
                 ))}
