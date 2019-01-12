@@ -134,7 +134,6 @@ class Navbar extends React.Component {
     { url: "/watch", pageName: "Watch" },
     { url: "/read", pageName: "Read" },
     { url: "/attend", pageName: "Attend" },
-    { url: "/", pageName: "Partner" },
     { url: "/about", pageName: "About" },
     { url: "/partnership", pageName: "Partnerships" }
   ]

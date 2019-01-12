@@ -37,7 +37,6 @@ const Container = styled.div`
 `
 const Desktop = styled.img`
   display: flex;
-  padding-top: 30px;
   width: 100%;
   @media only screen and (max-width: 425px) {
     display: none;
