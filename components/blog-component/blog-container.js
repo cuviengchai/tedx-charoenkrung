@@ -19,7 +19,6 @@ const VideoCardContainer = dynamic(() => import('../video-component/video-card-c
   }
 )
 
-
 const BlogColumn = styled.div`
     display: flex;
     margin-bottom: 2rem;
@@ -28,21 +27,16 @@ const MyContainer = styled.div`
     display: flex;
     margin: 0rem 2rem;
 `
-const TopSpace = styled.br`
-    height: 4rem;
-`
 const BlogContainer = ({ blogContent, left, right }) => {
     const { Header, LeftBlogs, RightBlogs, Contacts, VideoList } = blogContent
     return (
-        <MyContainer>
-        <Grid>
+        <Grid columns='equals'>
             <Grid.Row>
             { Header && <Blog content={Header} topicSize='large'/> }
             </Grid.Row>
             <Grid.Row>
-            <Grid columns='equals'>
                 <Grid.Column mobile={16} computer={left} >
-                { VideoList && <VideoCardContainer videolist={VideoList} />}
+                { VideoList && <VideoCardContainer videolist={VideoList}  theme={'Eiei'} detail={'my detail'} year={2018}/>}
                 { _.defaultTo(LeftBlogs, []).map(left => (
                     <Grid.Column key={left.topic}>
                         <Blog content={left} topicSize='small'/>
@@ -60,10 +54,8 @@ const BlogContainer = ({ blogContent, left, right }) => {
                         <Contact key={contact.name} contact={contact}/>
                     ))}
                 </Grid.Column>
-            </Grid>
             </Grid.Row>
         </Grid>
-        </MyContainer>
     )
 }
 export default BlogContainer

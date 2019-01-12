@@ -32,7 +32,7 @@ const Card = {
     TextBox: styled.div`
         display: flex;
         flex-direction: column;
-        margin: 0.5rem 0rem;
+        padding: 0.5rem 1rem;
         @media screen and (max-width: 990px) {
             margin: 0rem 2rem;
         }
