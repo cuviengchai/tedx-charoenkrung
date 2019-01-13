@@ -4,7 +4,8 @@ const Card = {
     MyContainer: styled.div`
         display: flex;
         flex-direction: column;
-        margin : 0 0.5rem 0.8rem;
+        align-items: center;
+        margin-bottom : 1rem;
         opacity: 1;
         transition: opacity 0.2s ease-in-out;
         -moz-transition: opacity 0.2s ease-in-out;
@@ -20,7 +21,7 @@ const Card = {
         }
     `,
     Image: styled.img`
-        width: 180px;
+        width: 240px;
         @media screen and (max-width: 1240px) {
             width: 160px;
         }
@@ -31,7 +32,7 @@ const Card = {
     TextBox: styled.div`
         display: flex;
         flex-direction: column;
-        margin: 0.5rem 0rem;
+        padding: 0.5rem 1rem;
         @media screen and (max-width: 990px) {
             margin: 0rem 2rem;
         }

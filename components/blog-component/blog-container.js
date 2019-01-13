@@ -19,7 +19,6 @@ const VideoCardContainer = dynamic(() => import('../video-component/video-card-c
   }
 )
 
-
 const BlogColumn = styled.div`
     display: flex;
     margin-bottom: 2rem;
@@ -28,29 +27,23 @@ const MyContainer = styled.div`
     display: flex;
     margin: 0rem 2rem;
 `
-const TopSpace = styled.br`
-    height: 4rem;
-`
-const BlogContainer = ({ blogContent }) => {
+const BlogContainer = ({ blogContent, left, right }) => {
     const { Header, LeftBlogs, RightBlogs, Contacts, VideoList } = blogContent
     return (
-        <MyContainer>
-        <Grid>
+        <Grid columns='equals'>
             <Grid.Row>
             { Header && <Blog content={Header} topicSize='large'/> }
-            { Header && <TopSpace /> }    
             </Grid.Row>
             <Grid.Row>
-            <Grid>
-                <Grid.Column mobile={16} computer={12} >
-                { VideoList && <VideoCardContainer videolist={VideoList} />}
+                <Grid.Column mobile={16} computer={left} >
+                { VideoList && <VideoCardContainer videolist={VideoList}  theme={'Eiei'} detail={'my detail'} year={2018}/>}
                 { _.defaultTo(LeftBlogs, []).map(left => (
-                    <BlogColumn key={left.topic}>
+                    <Grid.Column key={left.topic}>
                         <Blog content={left} topicSize='small'/>
-                    </BlogColumn>
+                    </Grid.Column>
                 ))}
                 </Grid.Column>
-                <Grid.Column mobile={16} computer={4}>
+                <Grid.Column mobile={16} computer={right}>
                     { _.defaultTo(RightBlogs, []).map(right => (
                         <BlogColumn key={right.topic}>
                             <Blog content={right} topicSize='small'/>
@@ -61,10 +54,8 @@ const BlogContainer = ({ blogContent }) => {
                         <Contact key={contact.name} contact={contact}/>
                     ))}
                 </Grid.Column>
-            </Grid>
             </Grid.Row>
         </Grid>
-        </MyContainer>
     )
 }
 export default BlogContainer

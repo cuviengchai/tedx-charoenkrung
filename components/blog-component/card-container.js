@@ -16,7 +16,7 @@ const CardContainer = ({Blogs,size, onClickBlog}) => {
             {_.defaultTo(Blogs,[]).map((blog)=>(
                 <Card centered key={`blog-${blog.name}`} onClick={ onClickBlog ? () => {onClickBlog(blog)}: null }>
                 <Warpper>
-                <Image src={blog.image} width="150px"/>
+                    <Image src={blog.image} width="150px"/>
                 </Warpper>
                 <Card.Content>
                   <Card.Description>{blog.description || ''}</Card.Description>

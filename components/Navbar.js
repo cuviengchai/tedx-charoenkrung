@@ -131,10 +131,9 @@ class Navbar extends React.Component {
 
   pages = [
     { url: "/", pageName: "Home" },
-    { url: "/video", pageName: "Video" },
-    { url: "/content", pageName: "Content" },
+    { url: "/watch", pageName: "Watch" },
+    { url: "/read", pageName: "Read" },
     { url: "/attend", pageName: "Attend" },
-    { url: "/", pageName: "Partner" },
     { url: "/about", pageName: "About" },
     { url: "/partnership", pageName: "Partnerships" }
   ]
@@ -232,12 +231,12 @@ class Navbar extends React.Component {
                                 2017
                               </NavbarItem>
                             </Link>
-                            <Link href={"/partnership?year=2018"}>
+                            <Link href={"/partnership?year=2019"}>
                               <NavbarItem
-                                key={"sub-item-2018"}
-                                active={this.props.subPageName === "2018"}
+                                key={"sub-item-2019"}
+                                active={this.props.subPageName === "2019"}
                               >
-                                2018
+                                2019
                               </NavbarItem>
                             </Link>
                           </SubNavbarItems>
