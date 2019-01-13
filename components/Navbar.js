@@ -231,12 +231,12 @@ class Navbar extends React.Component {
                                 2017
                               </NavbarItem>
                             </Link>
-                            <Link href={"/partnership?year=2018"}>
+                            <Link href={"/partnership?year=2019"}>
                               <NavbarItem
-                                key={"sub-item-2018"}
-                                active={this.props.subPageName === "2018"}
+                                key={"sub-item-2019"}
+                                active={this.props.subPageName === "2019"}
                               >
-                                2018
+                                2019
                               </NavbarItem>
                             </Link>
                           </SubNavbarItems>

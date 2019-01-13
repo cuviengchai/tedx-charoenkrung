@@ -1,5 +1,5 @@
 {
-    "year2018" : {
+    "year2017" : {
         "FirstPartners": [
             {
                 "image": "static/images/partners/isuzu.png",
@@ -92,10 +92,30 @@
             }
         ]
     },
-    "year2017" : {
+    "year2019" : {
         "SecondPartners": [
             {
                 "image": "static/images/partners/ais.png",
+                "name": "ais",
+                "description": "Financial Support"
+            },
+            {
+                "image": "static/images/partners/grab1.png",
+                "name": "ais",
+                "description": "Financial Support"
+            },
+            {
+                "image": "static/images/partners/prince1.png",
+                "name": "ais",
+                "description": "Financial Support"
+            },
+            {
+                "image": "static/images/partners/sing1.jpg",
+                "name": "ais",
+                "description": "Financial Support"
+            },
+            {
+                "image": "static/images/partners/dii1.png",
                 "name": "ais",
                 "description": "Financial Support"
             }

@@ -4,8 +4,8 @@ import { withRouter } from "next/router"
 import { Container, Header } from "semantic-ui-react"
 import Sponsors from "../content/partnership-page/sponsor.json"
 import CardContainer from "../components/blog-component/card-container"
-const { year2017, year2018 } = Sponsors
-const partnership = { "2017": year2017, "2018": year2018 }
+const { year2017, year2019 } = Sponsors
+const partnership = { "2017": year2017, "2019": year2019 }
 const Partners = props => {
   const index = `${props.router.query.year}`
   const { FirstPartners, SecondPartners, ThirdPartners } = partnership[index]
