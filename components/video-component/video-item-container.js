@@ -1,12 +1,21 @@
 import React from 'react'
 import { Item } from 'semantic-ui-react'
-import VideoItem from './video-item'
 import _ from 'lodash'
-const VideoItemContainer = ({videolist, onSelectVideo}) => {
+const VideoItemContainer = ({ year, videolist, onSelectVideo }) => {
   return (
     <Item.Group divided>
       {_.defaultTo(videolist,[]).map((video, idx)=>(
-          <VideoItem key={`item-${idx}`} video={video} onSelectVideo={onSelectVideo} />
+        <Item key={`item-${idx}`} onClick={() => onSelectVideo(year, video)}>
+          <Item.Image size='small' src={video.image} />
+          <Item.Content >
+            {/* <Item.Header> {title} </Item.Header> */}
+            <Item.Meta> {video.title}</Item.Meta>
+            <Item.Description>
+              {video.description}
+            </Item.Description>
+            {/* <Item.Extra>Additional Details</Item.Extra> */}
+          </Item.Content>
+        </Item>
       ))}
     </Item.Group>
   )

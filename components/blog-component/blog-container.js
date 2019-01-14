@@ -13,11 +13,6 @@ const Contact = dynamic(() => import('./contact'),
     loading: () => (<p>loading</p>)
   }
 )
-const VideoCardContainer = dynamic(() => import('../video-component/video-card-container'),
-  {
-    loading: () => (<p>loading</p>)
-  }
-)
 
 const BlogColumn = styled.div`
     display: flex;
@@ -35,15 +30,14 @@ const BlogContainer = ({ blogContent, left, right }) => {
             { Header && <Blog content={Header} topicSize='large'/> }
             </Grid.Row>
             <Grid.Row>
-                <Grid.Column mobile={16} computer={left} >
-                { VideoList && <VideoCardContainer videolist={VideoList}  theme={'Eiei'} detail={'my detail'} year={2018}/>}
+                <Grid.Column mobile={16} computer={ parseInt(left) } >
                 { _.defaultTo(LeftBlogs, []).map(left => (
                     <Grid.Column key={left.topic}>
                         <Blog content={left} topicSize='small'/>
                     </Grid.Column>
                 ))}
                 </Grid.Column>
-                <Grid.Column mobile={16} computer={right}>
+                <Grid.Column mobile={16} computer={parseInt(right)}>
                     { _.defaultTo(RightBlogs, []).map(right => (
                         <BlogColumn key={right.topic}>
                             <Blog content={right} topicSize='small'/>
