@@ -3,91 +3,91 @@
         "FirstPartners": [
             {
                 "image": "static/images/partners/isuzu.png",
-                "name": "isuzu",
+                "name": "isuzu-2017",
                 "description": "Financial Support"
             },
             {
                 "image": "static/images/partners/sheraton.png",
-                "name": "sheraton",
+                "name": "sheraton-2017",
                 "description": "Venue Support Catering Service"
             },
             {
                 "image": "static/images/partners/warehouse.png",
-                "name": "warehouse",
+                "name": "warehouse-2017",
                 "description": "Venue Support"
             },
             {
                 "image": "static/images/partners/index.png",
-                "name": "index",
+                "name": "index-2017",
                 "description": "Event Organizer Support"
             }
         ],
         "SecondPartners": [
             {
                 "image": "static/images/partners/ais.png",
-                "name": "ais",
+                "name": "ais-2017",
                 "description": "Financial Support"
             },
             {
                 "image": "static/images/partners/tcdc.png",
-                "name": "tcdc",
+                "name": "tcdc-2017",
                 "description": "Venue Support"
             },
             {
                 "image": "static/images/partners/thai.png",
-                "name": "thai",
+                "name": "thai-2017",
                 "description": "Production and Live Streaming System"
             }
         ],
         "ThirdPartners": [
             {
                 "image": "static/images/partners/noble.png",
-                "name": "noble",
+                "name": "noble-2017",
                 "description": "Financial Support"
             },
             {
                 "image": "static/images/partners/yim.png",
-                "name": "yim",
+                "name": "yim-2017",
                 "description": "Production Support"
             },
             {
                 "image": "static/images/partners/rabit.png",
-                "name": "rabit",
+                "name": "rabit-2017",
                 "description": "Venue Support"
             },
             {
                 "image": "static/images/partners/pana.png",
-                "name": "pana",
+                "name": "pana-2017",
                 "description": "Production Support"
             },
             {
                 "image": "static/images/partners/gopro.png",
-                "name": "gopro",
+                "name": "gopro-2017",
                 "description": "Production Support"
             },
             {
                 "image": "static/images/partners/pop.png",
-                "name": "pop",
+                "name": "pop-2017",
                 "description": "Ticketing"
             },
             {
                 "image": "static/images/partners/uber.png",
-                "name": "uber",
+                "name": "uber-2017",
                 "description": "Transportation Support"
             },
             {
                 "image": "static/images/partners/spri.png",
-                "name": "spri",
+                "name": "spri-2017",
                 "description": "Catering Support"
             },
             {
                 "image": "static/images/partners/heaven.png",
-                "name": "heaven",
+                "name": "heaven-2017",
                 "description": "Mobile Toilet Support"
             },
             {
                 "image": "static/images/partners/oldtown.png",
-                "name": "oldtown",
+                "name": "oldtown-2017",
                 "description": "Venue Support"
             }
         ]
@@ -96,34 +96,34 @@
         "SecondPartners": [
             {
                 "image": "static/images/partners/ais.png",
-                "name": "ais",
+                "name": "ais-2019",
                 "description": "Financial Support"
             },
             {
-                "image": "static/images/partners/grab1.png",
-                "name": "ais",
+                "image": "static/images/partners/grab-2019.jpg",
+                "name": "ais2",
                 "description": "Financial Support"
             },
             {
-                "image": "static/images/partners/prince1.png",
-                "name": "ais",
+                "image": "static/images/partners/prince-2019.jpg",
+                "name": "ais3",
                 "description": "Financial Support"
             },
             {
-                "image": "static/images/partners/sing1.jpg",
-                "name": "ais",
+                "image": "static/images/partners/singha-2019.jpg",
+                "name": "ais4",
                 "description": "Financial Support"
             },
             {
-                "image": "static/images/partners/dii1.png",
-                "name": "ais",
+                "image": "static/images/partners/dii-2019.jpg",
+                "name": "ais5",
                 "description": "Financial Support"
             }
         ],
         "ThirdPartners": [
             {
                 "image": "static/images/partners/noble.png",
-                "name": "noble",
+                "name": "noble6",
                 "description": "Financial Support"
             }            
         ]

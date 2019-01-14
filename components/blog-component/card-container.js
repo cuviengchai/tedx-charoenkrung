@@ -10,7 +10,7 @@ const Warpper = styled.div`
     margin:auto;
 `
 
-const CardContainer = ({Blogs,size, onClickBlog}) => {
+const CardContainer = ({ Blogs, size, onClickBlog}) => {
     return (
         <Card.Group centered itemsPerRow={size || 6} doubling>
             {_.defaultTo(Blogs,[]).map((blog)=>(
@@ -22,15 +22,6 @@ const CardContainer = ({Blogs,size, onClickBlog}) => {
                   <Card.Description>{blog.description || ''}</Card.Description>
                 </Card.Content>
               </Card>
-                // <Card
-                //     raised
-                //     key={`blog-${blog.name}`}
-                //     image={blog.image || ''}
-                //     header={blog.header || ''}
-                //     meta={blog.meta || ''}
-                //     description={blog.description || ''}
-                //     onClick={ onClickBlog ? () => {onClickBlog(blog)}: null }
-                //     />
             ))}
         </Card.Group>
         
