@@ -35,6 +35,7 @@
             "type": "Curator",
             "members": [
               "Thanan Ratanachote",
+              "Bunyarit Traisuthamporn",
               "Thipnapa Huansuriya",
               "Decharut Sukkumnoed",
               "Ornicha Akjareanpairod"
@@ -92,6 +93,7 @@
               "Kultida Siribunyarit",
               "Chuanchalerm Kaweewat",
               "Chompunut Kittidulyakan",
+              "Saitanu Atthapaibul",
               "Shine Lerdchanapakdee"
             ]
           },
@@ -147,6 +149,10 @@
         "type": "Production Team",
         "subType": [
           {
+            "type": "Head of Production Team",
+            "members": ["Sornkamon Thaipakdee"]
+          },
+          {
             "type": "Venue coordinator",
             "members": ["Phithak Wijit", "Apichaya Promjart"]
           },
@@ -159,7 +165,14 @@
             ]
           },
           { "type": "Technical Support", "members": ["Kessawa Palanund"] },
-          { "type": "Photographer", "members": ["Krid Karnsomdee"] },
+          {
+            "type": "Photographer",
+            "members": [
+              "Krid Karnsomdee",
+              "Kritapas chokechalermwat",
+              "Puwit Kattiyasuwong"
+            ]
+          },
           { "type": "Videographer", "members": ["Napon Jaturapuchapornpong"] }
         ],
         "members": []

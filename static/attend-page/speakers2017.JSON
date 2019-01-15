@@ -1,0 +1,86 @@
+[
+  {
+    "type": "Speaker",
+    "eng_name": "Dechart",
+    "thai_name": "ไพลิน จิตประเสริฐสุข",
+    "image": "static/images/speakers2017/ไพลิน.jpg",
+    "details": "การศึกษาประวัติศาสตร์ ก็เหมือนการต่อจิ๊กซอว์"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "ดุจดาว วัฒนปกรณ์",
+    "image": "static/images/speakers2017/ดุจดาว.jpg",
+    "details": "ร่างกายเป็นประตูบานที่ใกล้ที่สุดที่จะเข้าไปถึงจิตใจได้"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "ปิยะพงศ์ หมื่นประเสริฐดี",
+    "image": "static/images/speakers2017/ปิยะพงศ์.jpg",
+    "details": "ผมคิดว่าดนตรีเป็นปัจจัยสี่ เพราะมันคือยารักษาโรค"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "มิชารี มุคบิล",
+    "image": "static/images/speakers2017/มิชารี.jpg",
+    "details": "ถ้าอยากเป็นนักฟุตบอล สิ่งที่ต้องทำไม่ใช่การนั่งเรียน แต่คือการออกไปลงสนามเตะ"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "เดชรัตน์ สุขกำเนิด",
+    "image": "static/images/speakers2017/เดชรัตน์.jpg",
+    "details": "ความรู้สึก สำคัญกว่าความรู้"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "อ.ธีรศักดิ์ วงศ์ปิยะ",
+    "image": "static/images/speakers2017/ธีรศักดิ์.jpg",
+    "details": "นวัตกรรมคือ การทำน้อยแต่ได้มาก"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "พ.อ.ดร.วิชิต ซ้ายเกล้า",
+    "image": "static/images/speakers2017/วิชิต.jpg",
+    "details": "โลกของเราดำรงอยู่ได้ด้วยความหลากหลาย"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "นที เอกวิจิตร (อุ๋ย บุดดาเบลส)",
+    "image": "static/images/speakers2017/นที.jpg",
+    "details": "ผมตั้งใจว่าผมจะพูดให้น้อยลง"
+  },
+  {
+    "type": "Speaker",
+    "eng_name": "",
+    "thai_name": "ฉัตรศนัน มาสว่างไพโรจน์ ",
+    "image": "static/images/speakers2017/ฉัตรศนัน.jpg",
+    "details": "ขยะสร้างคนได้ พัฒนาสังคมให้ดีขึ้น และประเทศจะดีขึ้น ถ้าเราร่วมมือร่วมใจกัน"
+  },
+  {
+    "type": "Performer",
+    "eng_name": "",
+    "thai_name": "ธรรพ์ณธร แขวงเมือง (Flower Peaple)",
+    "image": "static/images/speakers2017/flowerPeaple.jpg",
+    "details": "นักเรียนมัธยม ผู้เล่าเรื่องราวผ่านเสียงเพลง"
+  },
+  {
+    "type": "Performer",
+    "eng_name": "",
+    "thai_name": "Sacrew (สาคู)",
+    "image": "static/images/speakers2017/sacrew.jpg",
+    "details": "กลุ่มนักเต้น Streetdance บีบอย และ บีทบ็อกซ์"
+  },
+  {
+    "type": "Lordfai Navinda x Bangkok Dance Academy",
+    "eng_name": "",
+    "thai_name": "Sacrew (สาคู)",
+    "image": "static/images/speakers2017/lordfai.jpg",
+    "details": "Terrarium” Contemporary Dance นักเต้นและนักออกแบบท่าเต้นร่วมสมัย"
+  }
+]
