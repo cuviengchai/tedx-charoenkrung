@@ -14,7 +14,7 @@ class Attend extends React.Component {
   render() {
     const year = this.props.router.query.year
     return (
-      <Layout pageName="Attend">
+      <Layout pageName="Attend" subPageName={year}>
         <DotsMatter year={year} />
         <AttendVideoPlayers year={year} />
         <Speakers year={year} />

@@ -116,27 +116,113 @@ flex-direction: row;
 
   }
 `
+const SubMenuComponent = props => {
+  const mobileWidth = 1023
+  const {
+    width,
+    selected,
+    subSelected,
+    pageName,
+    subMenus,
+    onDropDownClicked,
+    isActive
+  } = props
+  return (
+    <SubMenu>
+      <NavbarItem
+        key={"item-" + pageName}
+        active={selected === pageName}
+        onClick={() => onDropDownClicked(pageName)}
+      >
+        {pageName}
+        <FontAwesomeIcon
+          icon={
+            width <= mobileWidth
+              ? isActive
+                ? "caret-left"
+                : "caret-right"
+              : isActive
+              ? "caret-up"
+              : "caret-down"
+          }
+          color="black"
+          size="small"
+          className="dropdown-icon"
+          key={"dropdown-icon-" + pageName}
+        />
+      </NavbarItem>
+      <Fade
+        left={width <= mobileWidth ? true : false}
+        down={width > mobileWidth ? true : false}
+        distance={width > mobileWidth ? "30%" : "30%"}
+        duration={500}
+        collapse
+        when={isActive}
+        key={"fade-" + pageName}
+      >
+        <SubNavbarItems key={"subNavbarItems-" + pageName}>
+          {subMenus.map(subMenu => (
+            <Link
+              href={subMenu.link}
+              key={"link-" + pageName + "-" + subMenu.subPageName}
+            >
+              <NavbarItem
+                key={"sub-item-" + pageName + "-" + subMenu.link}
+                active={
+                  pageName === selected && subMenu.subPageName === subSelected
+                }
+              >
+                {subMenu.subPageName}
+              </NavbarItem>
+            </Link>
+          ))}
+        </SubNavbarItems>
+      </Fade>
+    </SubMenu>
+  )
+}
 
 class Navbar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       selected: this.props.pageName,
+      subSelected: this.props.subPageName ? this.props.subPageName : "",
       width: 0,
       isOpen: false,
-      partnershipsOpen: false,
-      attendOpen: false
+      currentDropdown: "",
+      dropDownOpen: false,
+      pages: [
+        { url: "/", pageName: "Home" },
+        {
+          url: "/watch",
+          pageName: "Watch",
+          subMenus: [
+            { subPageName: "2017", link: "" },
+            { subPageName: "2019", link: "" }
+          ]
+        },
+        { url: "/read", pageName: "Read" },
+        {
+          url: "/attend",
+          pageName: "Attend",
+          subMenus: [
+            { subPageName: "2017", link: "/attend?year=2017" },
+            { subPageName: "2019", link: "/attend?year=2019" }
+          ]
+        },
+        { url: "/about", pageName: "About" },
+        {
+          url: "/partnership",
+          pageName: "Partnerships",
+          subMenus: [
+            { subPageName: "2017", link: "/partnership?year=2017" },
+            { subPageName: "2019", link: "/partnership?year=2019" }
+          ]
+        }
+      ]
     }
   }
-
-  pages = [
-    { url: "/", pageName: "Home" },
-    { url: "/watch", pageName: "Watch" },
-    { url: "/read", pageName: "Read" },
-    { url: "/attend", pageName: "Attend" },
-    { url: "/about", pageName: "About" },
-    { url: "/partnership", pageName: "Partnerships" }
-  ]
 
   componentDidMount() {
     window.addEventListener("resize", this.onResize)
@@ -166,29 +252,39 @@ class Navbar extends React.Component {
       this.setState({
         width: newWidth
       })
-      if (this.newWidth >= 1024) {
-        this.setState({ isOpen: false, partnershipsOpen: false })
-      }
+      this.setState({ isOpen: false, dropDownOpen: false })
     }
   }
 
   onToggleHamburger = () => {
     if (this.state.width < 1024) {
-      this.setState({ isOpen: !this.state.isOpen })
+      this.setState({ isOpen: !this.state.isOpen, dropDownOpen: false })
     }
   }
 
-  onPartnershipsClicked = () => {
-    this.setState({ partnershipsOpen: !this.state.partnershipsOpen })
-  }
-
-  onAttendClicked = () => {
-    this.setState({ attendOpen: !this.state.attendOpen })
+  onDropDownClicked = pageName => {
+    if (pageName !== this.state.currentDropdown && this.state.dropDownOpen) {
+      this.setState({
+        currentDropdown: pageName
+      })
+    } else {
+      this.setState({
+        currentDropdown: pageName,
+        dropDownOpen: !this.state.dropDownOpen
+      })
+    }
   }
 
   renderNonMobile = () => {
-    const mobileWidth = 1023
-    const { width, partnershipsOpen, attendOpen } = this.state
+    // const mobileWidth = 1023
+    const {
+      width,
+      pages,
+      selected,
+      subSelected,
+      dropDownOpen,
+      currentDropdown
+    } = this.state
     return (
       <div>
         <Header>
@@ -198,112 +294,20 @@ class Navbar extends React.Component {
           <HeaderContent>
             <Fade collapse when={this.state.isOpen || this.state.width >= 1024}>
               <ul>
-                {this.pages.map((page, idx) => (
+                {pages.map((page, idx) => (
                   <div>
-                    {page.pageName === "Partnerships" ? (
-                      <SubMenu>
-                        <NavbarItem
-                          key={"item-" + idx}
-                          active={this.state.selected === page.pageName}
-                          onClick={this.onPartnershipsClicked}
-                        >
-                          {page.pageName}
-                          <FontAwesomeIcon
-                            icon={
-                              width <= mobileWidth
-                                ? partnershipsOpen
-                                  ? "caret-left"
-                                  : "caret-right"
-                                : partnershipsOpen
-                                ? "caret-up"
-                                : "caret-down"
-                            }
-                            color="black"
-                            size="small"
-                            className="dropdown-icon"
-                            key={"dropdown-icon-partnerships"}
-                          />
-                        </NavbarItem>
-                        <Fade
-                          left={width <= mobileWidth ? true : false}
-                          down={width > mobileWidth ? true : false}
-                          distance={width > mobileWidth ? "30%" : "30%"}
-                          duration={500}
-                          collapse
-                          when={this.state.partnershipsOpen}
-                        >
-                          <SubNavbarItems>
-                            <Link href={"/partnership?year=2017"}>
-                              <NavbarItem
-                                key={"sub-item-2017"}
-                                active={this.props.subPageName === "2017"}
-                              >
-                                2017
-                              </NavbarItem>
-                            </Link>
-                            <Link href={"/partnership?year=2019"}>
-                              <NavbarItem
-                                key={"sub-item-2019"}
-                                active={this.props.subPageName === "2019"}
-                              >
-                                2019
-                              </NavbarItem>
-                            </Link>
-                          </SubNavbarItems>
-                        </Fade>
-                      </SubMenu>
-                    ) : page.pageName === "Attend" ? (
-                      <SubMenu>
-                        <NavbarItem
-                          key={"item-" + idx}
-                          active={this.state.selected === page.pageName}
-                          onClick={this.onAttendClicked}
-                        >
-                          {page.pageName}
-                          <FontAwesomeIcon
-                            icon={
-                              width <= mobileWidth
-                                ? attendOpen
-                                  ? "caret-left"
-                                  : "caret-right"
-                                : attendOpen
-                                ? "caret-up"
-                                : "caret-down"
-                            }
-                            color="black"
-                            size="small"
-                            className={"dropdown-icon"}
-                            key={"dropdown-icon-attend"}
-                          />
-                        </NavbarItem>
-                        <Fade
-                          left={width <= mobileWidth ? true : false}
-                          down={width > mobileWidth ? true : false}
-                          distance={width > mobileWidth ? "30%" : "30%"}
-                          duration={500}
-                          collapse
-                          when={this.state.attendOpen}
-                        >
-                          <SubNavbarItems>
-                            <Link href={"/attend?year=2017"}>
-                              <NavbarItem
-                                key={"attend-sub-item-2017"}
-                                active={this.props.subPageName === "2017"}
-                              >
-                                2017
-                              </NavbarItem>
-                            </Link>
-                            <Link href={"/attend?year=2019"}>
-                              <NavbarItem
-                                key={"attend-sub-item-2019"}
-                                active={this.props.subPageName === "2019"}
-                              >
-                                2019
-                              </NavbarItem>
-                            </Link>
-                          </SubNavbarItems>
-                        </Fade>
-                      </SubMenu>
+                    {page.subMenus ? (
+                      <SubMenuComponent
+                        width={width}
+                        selected={selected}
+                        subSelected={subSelected}
+                        pageName={page.pageName}
+                        subMenus={page.subMenus}
+                        onDropDownClicked={this.onDropDownClicked}
+                        isActive={
+                          dropDownOpen && page.pageName === currentDropdown
+                        }
+                      />
                     ) : (
                       <Link href={page.url} key={"page-" + page.pageName}>
                         <NavbarItem
