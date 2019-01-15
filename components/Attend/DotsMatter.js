@@ -138,7 +138,7 @@ class DotsMatter extends React.Component {
   }
 
   render() {
-    console.log("YEAR: ", this.state.year)
+    console.log("LOL: ", this.state.year)
     const { year, quotes, activeImageUrl } = this.state
     if (year == "2017") {
       return (
@@ -187,7 +187,7 @@ class DotsMatter extends React.Component {
           </DotsMatterAllHeader>
         </div>
       )
-    } else if (year == "2018") {
+    } else if (year == "2019") {
       return (
         <div>
           <DotsMatterAllHeader>

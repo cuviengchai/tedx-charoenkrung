@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Grid, Responsive, Image } from "semantic-ui-react"
+import { Grid, Image } from "semantic-ui-react"
 
 const Text = styled.div`
   color: white !important;
@@ -29,35 +29,45 @@ const Overlay = styled.div`
   background-color: #db2828;
   opacity: 0.9;
   overflow: hidden;
-  width: inherit;
+  width: inherit !important;
   height: 0;
   transition: 0.5s ease;
 `
 
 const MobileOverlay = styled.div`
   position: absolute;
-  // bottom: 100%;
-  width: 100%;
-  height: 100%;
+  right: 3%;
+  left: 3%;
+  top: 2% !important;
+  bottom: 14%;
   background-color: gray;
   opacity: 0;
   overflow: hidden;
-  width: inherit;
-  height: inherit;
+  width: 94%;
+  height: 84%;
   transition: 0.5s ease;
 `
 
 const SpeakerImageContainer = styled.div`
+  display: block;
   width: inherit;
   text-align: center;
-  &:hover ${Overlay} {
-    bottom: 0;
-    height: 100%;
+  overflow: auto;
+  @media only screen and (min-width: 1024px) {
+    &:hover ${Overlay} {
+      bottom: 0;
+      height: 100%;
   }
+
+`
+
+const SpeakerItemContainer = styled.div`
+  text-align: center;
+  width: ;
 `
 
 const SpeakerContainer = styled.div`
-  display: initial;
+  display: block;
   text-align: center;
   bottom: 0;
   height: auto;
@@ -164,12 +174,16 @@ class Speakers extends React.Component {
       width: 0,
       isLoaded: false,
       speakers: [],
-      is2019: props.is2019
+      year: props.year
     }
     this.renderSpeakers = this.renderSpeakers.bind(this)
   }
   componentDidMount(props) {
-    fetch("./static/attend-page/speakers.JSON")
+    const dir =
+      this.state.year === "2017"
+        ? "./static/attend-page/speakers2017.JSON"
+        : "./static/attend-page/speakers2019.JSON"
+    fetch(dir)
       .then(res => res.json())
       .then(res => {
         this.setState({
@@ -240,14 +254,14 @@ class Speakers extends React.Component {
   }
 
   render() {
-    const { is2019 } = this.state
+    const { year } = this.state
     return (
       <div>
         <SpeakerHeaderContent>
           <Image src="static/images/attend/Doers.png" size="large" />
           <SpeakerHeader>
             Our Speakers and Performers in TEDxCharoenkrung{" "}
-            {is2019 ? "2019" : "2017"}
+            {year === "2017" ? "2017" : "2019"}
           </SpeakerHeader>
         </SpeakerHeaderContent>
 

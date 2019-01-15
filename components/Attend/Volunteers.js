@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Container, Grid, Responsive, Image } from "semantic-ui-react"
+import { Grid, Image } from "semantic-ui-react"
 import _ from "lodash"
 
 const MainVolunteerType = styled.div`
@@ -64,7 +64,8 @@ class Volunteers extends React.Component {
     super(props)
     this.state = {
       isLoaded: false,
-      volunteers: null
+      volunteers: null,
+      year: props.year
     }
     this.renderVolunteers = this.renderVolunteers.bind(this)
   }
@@ -116,8 +117,9 @@ class Volunteers extends React.Component {
     ))
   }
   render() {
-    console.log("isLoaded: ", this.state.isLoaded)
-    console.log("volunteers: ", this.state.volunteers)
+    if (this.state.year == "2017") {
+      return null
+    }
     return (
       <div>
         <Image src="static/images/attend/Volunteers.png" size="huge" />

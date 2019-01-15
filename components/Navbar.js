@@ -25,7 +25,6 @@ const Burger = styled.div`
 `
 
 const Header = styled.nav`
-  // display: flex;
   position: fixed;
   display: grid;
   grid-templates-columns: 1fr 1fr;
@@ -125,7 +124,8 @@ class Navbar extends React.Component {
       selected: this.props.pageName,
       width: 0,
       isOpen: false,
-      partnershipsOpen: false
+      partnershipsOpen: false,
+      attendOpen: false
     }
   }
 
@@ -141,6 +141,13 @@ class Navbar extends React.Component {
   componentDidMount() {
     window.addEventListener("resize", this.onResize)
     this._isMounted = true
+    this.setState({
+      width:
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth
+    })
+
     this.onResize()
   }
 
@@ -172,14 +179,16 @@ class Navbar extends React.Component {
   }
 
   onPartnershipsClicked = () => {
-    // if (this.state.width <= 1023) {
     this.setState({ partnershipsOpen: !this.state.partnershipsOpen })
-    // }
+  }
+
+  onAttendClicked = () => {
+    this.setState({ attendOpen: !this.state.attendOpen })
   }
 
   renderNonMobile = () => {
     const mobileWidth = 1023
-    const { width, partnershipsOpen } = this.state
+    const { width, partnershipsOpen, attendOpen } = this.state
     return (
       <div>
         <Header>
@@ -212,6 +221,7 @@ class Navbar extends React.Component {
                             color="black"
                             size="small"
                             className="dropdown-icon"
+                            key={"dropdown-icon-partnerships"}
                           />
                         </NavbarItem>
                         <Fade
@@ -234,6 +244,58 @@ class Navbar extends React.Component {
                             <Link href={"/partnership?year=2019"}>
                               <NavbarItem
                                 key={"sub-item-2019"}
+                                active={this.props.subPageName === "2019"}
+                              >
+                                2019
+                              </NavbarItem>
+                            </Link>
+                          </SubNavbarItems>
+                        </Fade>
+                      </SubMenu>
+                    ) : page.pageName === "Attend" ? (
+                      <SubMenu>
+                        <NavbarItem
+                          key={"item-" + idx}
+                          active={this.state.selected === page.pageName}
+                          onClick={this.onAttendClicked}
+                        >
+                          {page.pageName}
+                          <FontAwesomeIcon
+                            icon={
+                              width <= mobileWidth
+                                ? attendOpen
+                                  ? "caret-left"
+                                  : "caret-right"
+                                : attendOpen
+                                ? "caret-up"
+                                : "caret-down"
+                            }
+                            color="black"
+                            size="small"
+                            className={"dropdown-icon"}
+                            key={"dropdown-icon-attend"}
+                          />
+                        </NavbarItem>
+                        <Fade
+                          left={width <= mobileWidth ? true : false}
+                          down={width > mobileWidth ? true : false}
+                          distance={width > mobileWidth ? "30%" : "30%"}
+                          duration={500}
+                          collapse
+                          when={this.state.attendOpen}
+                        >
+                          <SubNavbarItems>
+                            <Link href={"/attend?year=2017"}>
+                              <NavbarItem
+                                key={"attend-sub-item-2017"}
+                                active={this.props.subPageName === "2017"}
+                              >
+                                2017
+                              </NavbarItem>
+                            </Link>
+                            <Link href={"/attend?year=2019"}>
+                              <NavbarItem
+                                key={"attend-sub-item-2019"}
                                 active={this.props.subPageName === "2019"}
                               >
                                 2019
