@@ -2,10 +2,12 @@ import React from "react"
 import Layout from "../components/Layout"
 import { withRouter } from "next/router"
 import { Container, Header } from "semantic-ui-react"
+import _ from 'lodash'
 import Sponsors from "../content/partnership-page/sponsor.json"
 import CardContainer from "../components/blog-component/card-container"
 const { year2017, year2019 } = Sponsors
 const partnership = { "2017": year2017, "2019": year2019 }
+
 class Partners extends React.Component{
   render(){
     const index = this.props.router.query.year

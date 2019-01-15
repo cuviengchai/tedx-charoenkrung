@@ -9,6 +9,13 @@ const Warpper = styled.div`
     width:auto !important;
     margin:auto;
 `
+const Support = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+`
 
 const CardContainer = ({ Blogs, size, onClickBlog}) => {
     return (
@@ -18,9 +25,10 @@ const CardContainer = ({ Blogs, size, onClickBlog}) => {
                 <Warpper>
                     <Image src={blog.image} width="150px"/>
                 </Warpper>
-                <Card.Content>
-                  <Card.Description>{blog.description || ''}</Card.Description>
-                </Card.Content>
+                {/* <Card.Content> */}
+                  {/* <Card.Description height="20px">{blog.description || ''}</Card.Description> */}
+                  <Support> {blog.description || ''} </Support>
+                {/* </Card.Content> */}
               </Card>
             ))}
         </Card.Group>
