@@ -35,18 +35,17 @@ export default withRouter(class VideoPlayerPage extends Component {
                         <h2> { VideoList[videoIndex].title} </h2>
                     </Grid.Row>
                     <Grid.Row columns={2}>
-                            <Grid.Column mobile={16} tablet={16} computer={10} >
-                                <VideoPlayer video={VideoList[videoIndex]}/>
-                            </Grid.Column>
-                            <Grid.Column mobile={16} tablet={16} computer={6}>
-                                <Responsive >
-                                    <VideoItemContainer year={year} videolist={yearContent[year].VideoList} onSelectVideo={this.onSelectVideo}/>
-                                </Responsive>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
-                    {/* <VideoList /> */}
+                        <Grid.Column mobile={16} tablet={16} computer={10} >
+                            <VideoPlayer video={VideoList[videoIndex]}/>
+                        </Grid.Column>
+                        <Grid.Column mobile={16} tablet={16} computer={6}>
+                            <Responsive >
+                                <VideoItemContainer year={year} videolist={yearContent[year].VideoList} onSelectVideo={this.onSelectVideo}/>
+                            </Responsive>
+                        </Grid.Column>
+                    </Grid.Row>
+                </Grid>
             </Layout>
-          )
+        )
     }
 })
