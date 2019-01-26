@@ -9,17 +9,11 @@ import video2017 from "../content/video-page/video2017.json"
 import video2019 from "../content/video-page/video2019.json"
 
 const yearContent2 = { 
-  "2017": video2019,
+  "2017": video2017,
   "2018": video2019,
   "2019": video2019,
   }
 class VideoPage extends React.Component {
-  yearContent = [
-    { year: 2017, video: video2017 },
-    { year: 2018, video: video2017 },
-    { year: 2019, video: video2019 },
-  ]
-  
   handleClick = (year) => {
     Router.push(
       `${Router.router.pathname}?year=${year}`,
@@ -30,10 +24,7 @@ class VideoPage extends React.Component {
   render(){
     const year = this.props.router.query.year
     return (
-      <Layout pageName="Video" color="teal">
-      { this.yearContent.map((it, idx)=>(
-        <button key ={`button-${idx}`} onClick={ () => this.handleClick(it.year)}> {it.year} </button>
-      ))}
+      <Layout pageName="Watch" subPageName={year} color="teal">
         <WatchContainer content={yearContent2[year]}> </WatchContainer>
       </Layout>
     )

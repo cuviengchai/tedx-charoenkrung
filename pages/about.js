@@ -10,6 +10,7 @@ const MyContainer = styled.div`
 const GridContainer = styled(Grid)`
   display: flex;
   justify-content: center;
+  margin-bottom: 100px;
 `
 const  About = () => (
   <Layout pageName="About" color='teal'>
