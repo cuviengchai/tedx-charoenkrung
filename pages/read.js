@@ -1,8 +1,10 @@
 import React, {Component} from "react"
 import Layout from "../components/Layout"
-import CardContainer from '../components/blog-component/card-container'
 import blogContent from '../content/blog-page/blog-content.json'
+import _ from 'lodash'
+import styled from 'styled-components'
 import Router from 'next/router'
+import { Grid, Image } from 'semantic-ui-react'
 const { Blogs } = blogContent
 class ContentPage extends Component {
     onClickBlog = (card) => {
@@ -15,10 +17,27 @@ class ContentPage extends Component {
         console.log(Blogs)
         return (
             <Layout pageName="content" color='teal'>
-            <h1> Hello</h1>
-            <CardContainer Blogs={Blogs} onClickBlog={(card) => {this.onClickBlog(card)}}/>   
+                <Grid stackable columns={2} >
+                
+                    {_.defaultTo(Blogs,[]).map((it, idx) => (
+                    <Grid.Column key={`blog-${idx}`} >
+                        <BlogCard blog={it} onClickCard={this.onClickBlog}/>
+                    </Grid.Column>
+                    ))}
+                
+                </Grid>
             </Layout>
         )
     }
 }
 export default ContentPage
+
+const BlogContainer = styled.div`
+    
+`
+
+const BlogCard = ({ blog, onClickCard }) => (
+    <BlogContainer onClick={()=> onClickCard(blog)}>
+        <Image src={blog.image} width="800px"/>
+    </BlogContainer>
+)

@@ -4,7 +4,8 @@ import { Container } from "semantic-ui-react"
 import styled from "styled-components"
 
 const Content = styled.div`
-  min-height: 100rm !important;
+  /* min-height: 100rm !important; */
+  min-height: calc(100vh - 220px);
 `
 
 const Navbar = dynamic(import("./Navbar"), {

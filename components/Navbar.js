@@ -198,8 +198,8 @@ class Navbar extends React.Component {
           url: "/watch",
           pageName: "Watch",
           subMenus: [
-            { subPageName: "2017", link: "" },
-            { subPageName: "2019", link: "" }
+            { subPageName: "2017", link: "/watch?year=2017" },
+            { subPageName: "2019", link: "/watch?year=2019" }
           ]
         },
         { url: "/read", pageName: "Read" },
