@@ -32,6 +32,8 @@ class Partners extends React.Component{
           <br />
           {ThirdPartners && <Header size="tiny"> GOLD PARTNERS </Header>}
           {ThirdPartners && <CardContainer Blogs={ThirdPartners} size="5" />}
+          <br />
+          <br />
         </Container>
       </Layout>
     )

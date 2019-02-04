@@ -4,6 +4,7 @@ import Head from "next/head"
 import styled from "styled-components"
 import Slider from "react-slick"
 import { Icon } from "semantic-ui-react"
+import Router from 'next/router'
 const Container = styled.div`
   .slick-prev {
     display: flex !important;
@@ -38,6 +39,8 @@ const Container = styled.div`
 const Desktop = styled.img`
   display: flex;
   width: 100%;
+  margin: 0;
+  padding: 0;
   @media only screen and (max-width: 425px) {
     display: none;
   }
@@ -53,7 +56,7 @@ const Mobile = styled.img`
 const Arrow = styled.div`
   display: flex;
   align-items: center;
-  background: black;
+  background: white;
   height: 100%;
   padding: 5%;
   opacity: 0.9;
@@ -66,7 +69,7 @@ const settings = {
   arrows: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  className: "slides"
+  className: "slides",
 }
 
 function SamplePrevArrow(props) {
@@ -84,38 +87,31 @@ function SampleNextArrow(props) {
     />
   )
 }
-
-{
-  /* <Mobile src="static/images/HomeMobile.png" /> */
+class Home extends React.Component {
+  selectAttend = () => {
+    Router.push ({
+      pathname: '/attend',
+      query: { year: '2019' }
+  })
+  }
+  render(){
+    return (
+        <Container>
+          <Head>
+            <title>Home</title>
+          </Head>
+          <Layout pageName="Home">
+          <Slider {...settings}>
+            <div>
+              <Desktop src="static/images/HomeDesktop.png" />
+            </div>
+            <div>
+              <Desktop src="static/images/DotsMatter.png" onClick = {() => this.selectAttend()}/>
+            </div>
+          </Slider>
+          </Layout>
+        </Container>
+      )
+  }
 }
-export default () => (
-  <Container>
-    <Layout pageName="Home" />
-    {/* <Desktop src="static/images/HomeDesktop.png" />
-    <Mobile src="static/images/HomeMobile.png" /> */}
-    <Slider {...settings}>
-      <div>
-        <Desktop src="static/images/HomeDesktop.png" />
-      </div>
-      <div>
-        <Desktop src="static/images/HomeDesktop.png" />
-      </div>
-      <div>
-        <Desktop src="static/images/HomeDesktop.png" />
-      </div>
-      <div>
-        <Desktop src="static/images/HomeDesktop.png" />
-      </div>
-      <div>
-        <Desktop src="static/images/HomeDesktop.png" />
-      </div>
-      <div>
-        <Desktop src="static/images/HomeDesktop.png" />
-      </div>
-    </Slider>
-
-    <Head>
-      <title>Home</title>
-    </Head>
-  </Container>
-)
+export default Home
