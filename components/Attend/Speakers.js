@@ -30,28 +30,26 @@ const Overlay = styled.div`
   background-color: #db2828;
   ocity: 0.9;
   overflow: hidden;
-  width: inherit !important;
+  width: 100%;
   height: 0;
   transition: 0.5s ease;
 `
 
 const MobileOverlay = styled.div`
   position: absolute;
-  right: 3%;
-  left: 3%;
-  top: 2% !important;
-  bottom: 14%;
   background-color: gray;
   opacity: 0;
   overflow: hidden;
-  width: 94%;
-  height: 84%;
+  width: 100%;
+  height: 100%;
   transition: 0.5s ease;
 `
 
 const SpeakerImageContainer = styled.div`
+  position: relative;
+  // max-width: 300px;  
   display: block;
-  width: inherit;
+  width: 100%;
   text-align: center;
   overflow: auto;
   @media only screen and (min-width: 1024px) {
@@ -125,6 +123,28 @@ const SpeakerHeaderContent = styled.div`
   }
 `
 
+const SpeakerGrid = styled.div`
+  display: grid;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+`
+
+const SpeakerGridMobile = styled.div`
+  display: grid;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+`
+
 const SpeakerItem = props => {
   let { eng_name, thai_name, image, details } = props.speaker
   return (
@@ -182,22 +202,6 @@ class Speakers extends React.Component {
   }
   componentDidMount() {
     this.fetchSpeakers(this.state.year)
-    // const dir =
-    //   this.state.year === "2017"
-    //     ? "./static/attend-page/speakers2017.JSON"
-    //     : "./static/attend-page/speakers2019.JSON"
-    // fetch(dir)
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     this.setState({
-    //       speakers: res
-    //     })
-    //   })
-    //   .then(() => {
-    //     this.setState({ isLoaded: true })
-    //     window.addEventListener("resize", this.onResize)
-    //     this.onResize()
-    //   })
   }
 
   fetchSpeakers = () => {
@@ -227,14 +231,6 @@ class Speakers extends React.Component {
       })
   }
 
-  // componentWillUpdate(prevProps) {
-  //   if (this.props.year !== prevProps.year) {
-  //     console.log("I FOUND A WAY")
-  //     console.log("props: ", this.props.year)
-  //     this.fetchSpeakers(this.props.year)
-  //   }
-  // }
-
   componentWillUnmount() {
     window.removeEventListener("resize", this.onResize)
   }
@@ -256,39 +252,33 @@ class Speakers extends React.Component {
     return (
       <div>
         {width <= 1023 ? (
-          <Grid
-            columns={2}
-            centered
-            padded
-            padded="vertically"
-            textAlign="center"
-          >
+          // <Grid
+          //   columns={2}
+          //   centered
+          //   padded
+          //   padded="vertically"
+          //   textAlign="center"
+          // >
+          //   {speakers2017.map((speaker, idx) => (
+          //     <Grid.Column width={8} centered textAlign="center">
+          //       <SpeakerItemMobile
+          //         speaker={speaker}
+          //         key={"speaker-item" + idx}
+          //       />
+          //     </Grid.Column>
+          //   ))}
+          // </Grid>
+          <SpeakerGridMobile>
             {speakers2017.map((speaker, idx) => (
-              <Grid.Column width={8} centered textAlign="center">
-                <SpeakerItemMobile
-                  speaker={speaker}
-                  key={"speaker-item" + idx}
-                />
-              </Grid.Column>
+              <SpeakerItemMobile speaker={speaker} key={"speaker-item" + idx} />
             ))}
-          </Grid>
+          </SpeakerGridMobile>
         ) : (
-          <SpeakerContainer>
-            <Grid
-              columns={4}
-              stackable
-              centered
-              padded
-              padded="vertically"
-              textAlign="center"
-            >
-              {speakers2017.map((speaker, idx) => (
-                <Grid.Column width={4} key={"speaker-column" + idx}>
-                  <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
-                </Grid.Column>
-              ))}
-            </Grid>
-          </SpeakerContainer>
+          <SpeakerGrid>
+            {speakers2017.map((speaker, idx) => (
+              <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
+            ))}
+          </SpeakerGrid>
         )}
       </div>
     )
