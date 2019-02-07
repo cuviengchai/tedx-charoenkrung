@@ -5,8 +5,8 @@ const fetch = require("node-fetch")
 
 const Text = styled.div`
   color: white !important;
-
-  font-size: 20px;
+  width: 60%;
+  font-size: 17px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -28,30 +28,28 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   background-color: #db2828;
-  ocity: 0.9;
+  opacity: 0.9;
   overflow: hidden;
-  width: inherit !important;
+  width: 100%;
   height: 0;
   transition: 0.5s ease;
 `
 
 const MobileOverlay = styled.div`
   position: absolute;
-  right: 3%;
-  left: 3%;
-  top: 2% !important;
-  bottom: 14%;
   background-color: gray;
   opacity: 0;
   overflow: hidden;
-  width: 94%;
-  height: 84%;
+  width: 100%;
+  height: 100%;
   transition: 0.5s ease;
 `
 
 const SpeakerImageContainer = styled.div`
+  position: relative;
+  // max-width: 300px;  
   display: block;
-  width: inherit;
+  width: 100%;
   text-align: center;
   overflow: auto;
   @media only screen and (min-width: 1024px) {
@@ -61,12 +59,6 @@ const SpeakerImageContainer = styled.div`
   }
 
 `
-
-const SpeakerItemContainer = styled.div`
-  text-align: center;
-  width: ;
-`
-
 const SpeakerContainer = styled.div`
   display: block;
   text-align: center;
@@ -107,22 +99,38 @@ const SpeakerHeader = styled.div`
   font-family: "Helvetica Neue";
 `
 
-const SpeakerDetailsMobile = styled.div`
-  background-color: gray;
-  color: white;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  font-family: "Helvetica Neue";
-`
 const SpeakerHeaderContent = styled.div`
   @media only screen and (max-width: 1023px) {
+    margin: 1em 0em;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
+`
+
+const SpeakerGrid = styled.div`
+  display: grid;
+  margin-top: 0em;
+  padding-top: 0em;
+  margin-bottom: 3em;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+`
+
+const SpeakerGridMobile = styled.div`
+  display: grid;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
 `
 
 const SpeakerItem = props => {
@@ -182,22 +190,6 @@ class Speakers extends React.Component {
   }
   componentDidMount() {
     this.fetchSpeakers(this.state.year)
-    // const dir =
-    //   this.state.year === "2017"
-    //     ? "./static/attend-page/speakers2017.JSON"
-    //     : "./static/attend-page/speakers2019.JSON"
-    // fetch(dir)
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     this.setState({
-    //       speakers: res
-    //     })
-    //   })
-    //   .then(() => {
-    //     this.setState({ isLoaded: true })
-    //     window.addEventListener("resize", this.onResize)
-    //     this.onResize()
-    //   })
   }
 
   fetchSpeakers = () => {
@@ -227,14 +219,6 @@ class Speakers extends React.Component {
       })
   }
 
-  // componentWillUpdate(prevProps) {
-  //   if (this.props.year !== prevProps.year) {
-  //     console.log("I FOUND A WAY")
-  //     console.log("props: ", this.props.year)
-  //     this.fetchSpeakers(this.props.year)
-  //   }
-  // }
-
   componentWillUnmount() {
     window.removeEventListener("resize", this.onResize)
   }
@@ -256,39 +240,17 @@ class Speakers extends React.Component {
     return (
       <div>
         {width <= 1023 ? (
-          <Grid
-            columns={2}
-            centered
-            padded
-            padded="vertically"
-            textAlign="center"
-          >
+          <SpeakerGridMobile>
             {speakers2017.map((speaker, idx) => (
-              <Grid.Column width={8} centered textAlign="center">
-                <SpeakerItemMobile
-                  speaker={speaker}
-                  key={"speaker-item" + idx}
-                />
-              </Grid.Column>
+              <SpeakerItemMobile speaker={speaker} key={"speaker-item" + idx} />
             ))}
-          </Grid>
+          </SpeakerGridMobile>
         ) : (
-          <SpeakerContainer>
-            <Grid
-              columns={4}
-              stackable
-              centered
-              padded
-              padded="vertically"
-              textAlign="center"
-            >
-              {speakers2017.map((speaker, idx) => (
-                <Grid.Column width={4} key={"speaker-column" + idx}>
-                  <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
-                </Grid.Column>
-              ))}
-            </Grid>
-          </SpeakerContainer>
+          <SpeakerGrid>
+            {speakers2017.map((speaker, idx) => (
+              <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
+            ))}
+          </SpeakerGrid>
         )}
       </div>
     )
@@ -296,6 +258,9 @@ class Speakers extends React.Component {
 
   render() {
     const { year } = this.props
+    if (year === "2019") {
+      return null
+    }
     return (
       <div>
         <SpeakerHeaderContent>

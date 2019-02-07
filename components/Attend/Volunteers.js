@@ -34,7 +34,7 @@ const Content = styled.div`
 
 const VolunteerHeader = styled.div`
   padding-top: 1em;
-  padding-bottom: 4em;
+  padding-bottom: 3em;
   font-family: "Helvetica Neue";
   text-align: left;
   @media only screen and (max-width: 1023px) {
@@ -47,6 +47,8 @@ const VolunteerHeader = styled.div`
 `
 const VolunteerContainer = styled.div`
   display: initial;
+  margin-bottom: 3em;
+  padding-bottom: 3em;
   @media only screen and (max-width: 1023px) {
     display: none;
   }
@@ -56,6 +58,7 @@ const VolunteerContainerMobile = styled.div`
   @media only screen and (max-width: 1023px) {
     display: initial;
     text-align: left;
+    margin-bottom: 3em;
   }
 `
 
