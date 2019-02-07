@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { Grid, Image } from "semantic-ui-react"
+const fetch = require("node-fetch")
 
 const Text = styled.div`
   color: white !important;
@@ -173,21 +174,50 @@ class Speakers extends React.Component {
     this.state = {
       width: 0,
       isLoaded: false,
-      speakers: [],
+      speakers2017: [],
+      speakers2019: [],
       year: props.year
     }
     this.renderSpeakers = this.renderSpeakers.bind(this)
   }
-  componentDidMount(props) {
-    const dir =
-      this.state.year === "2017"
-        ? "./static/attend-page/speakers2017.JSON"
-        : "./static/attend-page/speakers2019.JSON"
-    fetch(dir)
+  componentDidMount() {
+    this.fetchSpeakers(this.state.year)
+    // const dir =
+    //   this.state.year === "2017"
+    //     ? "./static/attend-page/speakers2017.JSON"
+    //     : "./static/attend-page/speakers2019.JSON"
+    // fetch(dir)
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     this.setState({
+    //       speakers: res
+    //     })
+    //   })
+    //   .then(() => {
+    //     this.setState({ isLoaded: true })
+    //     window.addEventListener("resize", this.onResize)
+    //     this.onResize()
+    //   })
+  }
+
+  fetchSpeakers = () => {
+    const fileDir = [
+      "./static/attend-page/speakers2017.JSON",
+      "./static/attend-page/speakers2019.JSON"
+    ]
+    this.setState({ isLoaded: false })
+    fetch("./static/attend-page/speakers2017.JSON")
       .then(res => res.json())
       .then(res => {
         this.setState({
-          speakers: res
+          speakers2017: res
+        })
+      })
+      .then(() => fetch("./static/attend-page/speakers2019.JSON"))
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          speakers2019: res
         })
       })
       .then(() => {
@@ -196,6 +226,14 @@ class Speakers extends React.Component {
         this.onResize()
       })
   }
+
+  // componentWillUpdate(prevProps) {
+  //   if (this.props.year !== prevProps.year) {
+  //     console.log("I FOUND A WAY")
+  //     console.log("props: ", this.props.year)
+  //     this.fetchSpeakers(this.props.year)
+  //   }
+  // }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.onResize)
@@ -211,7 +249,10 @@ class Speakers extends React.Component {
   }
 
   renderSpeakers() {
-    const { width } = this.state
+    const { isLoaded, width, speakers2017, speakers2019 } = this.state
+    if (!isLoaded) {
+      return null
+    }
     return (
       <div>
         {width <= 1023 ? (
@@ -222,7 +263,7 @@ class Speakers extends React.Component {
             padded="vertically"
             textAlign="center"
           >
-            {this.state.speakers.map((speaker, idx) => (
+            {speakers2017.map((speaker, idx) => (
               <Grid.Column width={8} centered textAlign="center">
                 <SpeakerItemMobile
                   speaker={speaker}
@@ -241,7 +282,7 @@ class Speakers extends React.Component {
               padded="vertically"
               textAlign="center"
             >
-              {this.state.speakers.map((speaker, idx) => (
+              {speakers2017.map((speaker, idx) => (
                 <Grid.Column width={4} key={"speaker-column" + idx}>
                   <SpeakerItem speaker={speaker} key={"speaker-item" + idx} />
                 </Grid.Column>
@@ -255,7 +296,6 @@ class Speakers extends React.Component {
 
   render() {
     const { year } = this.props
-    console.log("YEAR: ", year)
     return (
       <div>
         <SpeakerHeaderContent>
