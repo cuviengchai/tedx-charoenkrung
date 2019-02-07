@@ -1,7 +1,7 @@
 import VideoPlayer from "../video-component/video"
 import React from "react"
 import styled from "styled-components"
-import { Grid, Responsive, Item, Image } from "semantic-ui-react"
+import { Image } from "semantic-ui-react"
 import _ from "lodash"
 
 const LowerVideoPlayer = styled(VideoPlayer)`
@@ -21,21 +21,32 @@ const VideoListImage = styled(Image)`
   }
 `
 
+const VideoListContainer = styled.div`
+  margin-top: 1em;
+  margin-bottom: 3em;
+`
+const VideoGrid = styled.div`
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-flow: row;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+`
+
 const VideoList = props => (
-  <div>
-    <Grid columns={3} padded="vertically" textAlign="center">
+  <VideoListContainer>
+    <VideoGrid>
       {props.videos.map((video, idx) => (
-        <Grid.Column width={5}>
-          <VideoListImage
-            src={video.image}
-            onClick={() => props.onSelectVideo(video)}
-            size="medium"
-            isSelected={video.id === props.activeVideo.id}
-          />
-        </Grid.Column>
+        <VideoListImage
+          src={video.image}
+          onClick={() => props.onSelectVideo(video)}
+          size="medium"
+          isSelected={video.id === props.activeVideo.id}
+        />
       ))}
-    </Grid>
-  </div>
+    </VideoGrid>
+  </VideoListContainer>
 )
 
 class AttendVideoPlayer extends React.Component {
