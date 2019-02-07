@@ -27,7 +27,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   background-color: #db2828;
-  opacity: 0.9;
+  ocity: 0.9;
   overflow: hidden;
   width: inherit !important;
   height: 0;
@@ -254,18 +254,20 @@ class Speakers extends React.Component {
   }
 
   render() {
-    const { year } = this.state
+    const { year } = this.props
+    console.log("YEAR: ", year)
     return (
       <div>
         <SpeakerHeaderContent>
           <Image src="static/images/attend/Doers.png" size="large" />
           <SpeakerHeader>
             Our Speakers and Performers in TEDxCharoenkrung{" "}
-            {year === "2017" ? "2017" : "2019"}
+            {year == "2017" ? "2017" : "2019"}
           </SpeakerHeader>
         </SpeakerHeaderContent>
-
-        {!this.state.isLoaded ? null : this.renderSpeakers()}
+        {year == "2017" ? (
+          <div>{!this.state.isLoaded ? null : this.renderSpeakers()}</div>
+        ) : null}
       </div>
     )
   }
