@@ -6,13 +6,13 @@ import Volunteers from "../components/Attend/Volunteers"
 import DotsMatter from "../components/Attend/DotsMatter"
 import AttendVideoPlayers from "../components/Attend/AttendVideoPlayer"
 
-class Attend extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+// const { year2017, year2019 } = Sponsors
+// const partnership = { "2017": year2017, "2019": year2019 }
 
+class Attend extends React.Component {
   render() {
     const year = this.props.router.query.year
+    console.log("the year: ", year)
     return (
       <Layout pageName="Attend" subPageName={year}>
         <DotsMatter year={year} />

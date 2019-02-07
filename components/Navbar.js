@@ -187,7 +187,7 @@ class Navbar extends React.Component {
     super(props)
     this.state = {
       selected: this.props.pageName,
-      subSelected: this.props.subPageName ? this.props.subPageName : "",
+      subSelected: props.subPageName ? props.subPageName : "",
       width: 0,
       isOpen: false,
       currentDropdown: "",
@@ -202,7 +202,6 @@ class Navbar extends React.Component {
             { subPageName: "2019", link: "/watch?year=2019" }
           ]
         },
-        { url: "/read", pageName: "Read" },
         {
           url: "/attend",
           pageName: "Attend",
@@ -300,7 +299,7 @@ class Navbar extends React.Component {
                       <SubMenuComponent
                         width={width}
                         selected={selected}
-                        subSelected={subSelected}
+                        subSelected={this.props.subPageName}
                         pageName={page.pageName}
                         subMenus={page.subMenus}
                         onDropDownClicked={this.onDropDownClicked}
@@ -312,7 +311,7 @@ class Navbar extends React.Component {
                       <Link href={page.url} key={"page-" + page.pageName}>
                         <NavbarItem
                           key={"item-" + idx}
-                          active={this.state.selected === page.pageName}
+                          active={selected === page.pageName}
                         >
                           {page.pageName}
                         </NavbarItem>

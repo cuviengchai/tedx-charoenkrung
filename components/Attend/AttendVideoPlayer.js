@@ -9,7 +9,7 @@ const LowerVideoPlayer = styled(VideoPlayer)`
 `
 
 const VideoListImage = styled(Image)`
-  opacity: 1;
+  opacity: ${props => (props.isSelected ? "0.6" : "1")};
   transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -23,13 +23,14 @@ const VideoListImage = styled(Image)`
 
 const VideoList = props => (
   <div>
-    <Grid columns={4} padded="vertically" textAlign="center">
+    <Grid columns={3} padded="vertically" textAlign="center">
       {props.videos.map((video, idx) => (
-        <Grid.Column width={4}>
+        <Grid.Column width={5}>
           <VideoListImage
             src={video.image}
             onClick={() => props.onSelectVideo(video)}
             size="medium"
+            isSelected={video.id === props.activeVideo.id}
           />
         </Grid.Column>
       ))}
@@ -42,18 +43,35 @@ class AttendVideoPlayer extends React.Component {
     super(props)
     this.state = {
       isLoaded: false,
-      videos: [],
+      videos2017: [],
+      videos2019: [],
       activeVideo: null
     }
   }
 
   componentDidMount() {
-    fetch("./static/attend-page/attendVideos.JSON")
+    fetch("./static/attend-page/attendVideos2017.JSON")
       .then(res => res.json())
       .then(res => {
         console.log("VIDEOS: ", res)
-        this.setState({ videos: res.videos, activeVideo: res.videos[0] })
+        this.setState({ videos2017: res.videos, activeVideo: res.videos[0] })
       })
+      .then(() =>
+        fetch("./static/attend-page/attendVideos2019.JSON")
+          .then(res => res.json())
+          .then(res => {
+            console.log("VIDEOS: ", res)
+            if (res.videos.length !== 0) {
+              this.setState({
+                videos2019: res.videos,
+                activeVideo: res.videos[0]
+              })
+            }
+          })
+          .then(() => {
+            this.setState({ isLoaded: true })
+          })
+      )
       .then(() => {
         this.setState({ isLoaded: true })
       })
@@ -64,11 +82,20 @@ class AttendVideoPlayer extends React.Component {
   }
 
   renderAttendVideoPlayer = () => {
-    const { videos, activeVideo } = this.state
+    const { videos2017, videos2019, activeVideo } = this.state
+    const { year } = this.props
     return (
       <div>
-        <LowerVideoPlayer video={activeVideo} />
-        <VideoList videos={videos} onSelectVideo={this.onSelectVideo} />
+        {year === "2019" ? null : (
+          <div>
+            <LowerVideoPlayer video={activeVideo} minimal />
+            <VideoList
+              videos={videos2017}
+              onSelectVideo={this.onSelectVideo}
+              activeVideo={activeVideo}
+            />
+          </div>
+        )}
       </div>
     )
   }

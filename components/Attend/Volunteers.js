@@ -117,7 +117,7 @@ class Volunteers extends React.Component {
     ))
   }
   render() {
-    if (this.state.year == "2017") {
+    if (this.props.year == "2017") {
       return null
     }
     return (

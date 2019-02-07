@@ -139,7 +139,8 @@ class DotsMatter extends React.Component {
 
   render() {
     console.log("LOL: ", this.state.year)
-    const { year, quotes, activeImageUrl } = this.state
+    const { quotes, activeImageUrl } = this.state
+    const { year } = this.props
     if (year == "2017") {
       return (
         <div>
