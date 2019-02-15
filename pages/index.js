@@ -3,19 +3,18 @@ import Layout from "../components/Layout.js"
 import Head from "next/head"
 import styled from "styled-components"
 import Slider from "react-slick"
-import { Icon } from "semantic-ui-react"
 import Router from 'next/router'
 const Container = styled.div`
   .slick-prev {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: black;
+    background: #DCDCDC;
     height: 30%;
     width: 10%;
     padding-left: 3%;
     margin-left: 0;
-    opacity: 0.9;
+    opacity: 0.4;
     border-radius: 20%;
     z-index: 1;
   }
@@ -23,12 +22,12 @@ const Container = styled.div`
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: black;
+    background: #DCDCDC;
     height: 30%;
     width: 10%;
     padding-right: 3%;
     margin-right: 0;
-    opacity: 0.9;
+    opacity: 0.4;
     border-radius: 20%;
     z-index: 1;
   }
@@ -63,6 +62,7 @@ const Arrow = styled.div`
 `
 
 const settings = {
+  dots: true,
   infinite: true,
   fade: true,
   speed: 500,

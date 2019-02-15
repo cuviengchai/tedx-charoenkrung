@@ -25,10 +25,9 @@ const CardContainer = ({ Blogs, size, onClickBlog}) => {
                 <Warpper>
                     <Image src={blog.image} width="150px"/>
                 </Warpper>
-                {/* <Card.Content> */}
-                  {/* <Card.Description height="20px">{blog.description || ''}</Card.Description> */}
-                  <Support> {blog.description || ''} </Support>
-                {/* </Card.Content> */}
+                
+                  { blog.description && <Support> {blog.description || ''} </Support>}
+                
               </Card>
             ))}
         </Card.Group>

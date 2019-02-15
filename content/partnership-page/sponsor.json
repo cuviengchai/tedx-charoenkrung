@@ -12,7 +12,7 @@
                 "description": "Venue Support Catering Service"
             },
             {
-                "image": "static/images/partners/warehouse.png",
+                "image": "static/images/partners/warehouse.jpg",
                 "name": "warehouse-2017",
                 "description": "Venue Support"
             },
@@ -29,7 +29,7 @@
                 "description": "Financial Support"
             },
             {
-                "image": "static/images/partners/tcdc.png",
+                "image": "static/images/partners/tcdc.jpg",
                 "name": "tcdc-2017",
                 "description": "Venue Support"
             },
@@ -41,7 +41,7 @@
         ],
         "ThirdPartners": [
             {
-                "image": "static/images/partners/noble.png",
+                "image": "static/images/partners/noble.jpg",
                 "name": "noble-2017",
                 "description": "Financial Support"
             },
@@ -56,12 +56,12 @@
                 "description": "Venue Support"
             },
             {
-                "image": "static/images/partners/pana.png",
+                "image": "static/images/partners/panasonic.jpg",
                 "name": "pana-2017",
                 "description": "Production Support"
             },
             {
-                "image": "static/images/partners/gopro.png",
+                "image": "static/images/partners/gopro.jpg",
                 "name": "gopro-2017",
                 "description": "Production Support"
             },
@@ -95,37 +95,53 @@
     "year2019" : {
         "SecondPartners": [
             {
-                "image": "static/images/partners/ais.png",
-                "name": "ais-2019",
-                "description": "Financial Support"
+                "image": "static/images/partners/prince.jpg",
+                "name": "prince-2019"
             },
             {
-                "image": "static/images/partners/grab-2019.jpg",
-                "name": "ais2",
-                "description": "Financial Support"
+                "image": "static/images/partners/noble.jpg",
+                "name": "noble-2019"
             },
             {
-                "image": "static/images/partners/prince-2019.jpg",
-                "name": "ais3",
-                "description": "Financial Support"
+                "image": "static/images/partners/panasonic.jpg",
+                "name": "panasonic-2019"
+            },
+            {
+                "image": "static/images/partners/glowfish.jpg",
+                "name": "glowfish-2019"
+            },
+            {
+                "image": "static/images/partners/warehouse.jpg",
+                "name": "warehouse-2019"
+            },
+            {
+                "image": "static/images/partners/classmat.jpg",
+                "name": "classmat-2019"
+            },
+            {
+                "image": "static/images/partners/airasia.jpg",
+                "name": "airasia-2019"
             },
             {
                 "image": "static/images/partners/singha-2019.jpg",
-                "name": "ais4",
-                "description": "Financial Support"
+                "name": "singha-2019"
             },
             {
-                "image": "static/images/partners/dii-2019.jpg",
-                "name": "ais5",
-                "description": "Financial Support"
-            }
-        ],
-        "ThirdPartners": [
+                "image": "static/images/partners/tcdc.jpg",
+                "name": "tcdc-2019"
+            },
             {
-                "image": "static/images/partners/noble.png",
-                "name": "noble6",
-                "description": "Financial Support"
-            }            
-        ]
+                "image": "static/images/partners/divana.jpg",
+                "name": "divana-2019"
+            },
+            {
+                "image": "static/images/partners/grab.jpg",
+                "name": "grab-2019"
+            },
+            {
+                "image": "static/images/partners/gopro.jpg",
+                "name": "gopro-2019"
+            }
+        ]           
     }
 }
