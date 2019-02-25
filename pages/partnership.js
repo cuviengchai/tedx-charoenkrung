@@ -11,7 +11,7 @@ const partnership = { "2017": year2017, "2019": year2019 }
 class Partners extends React.Component {
   render() {
     const index = this.props.router.query.year
-    const { FirstPartners, SecondPartners, ThirdPartners } = partnership[index]
+    const { FirstPartners, SecondPartners, ThirdPartners, SilverPartners } = partnership[index]
     return (
       <Layout pageName="Partnerships" subPageName={index} color="teal">
         <Container textAlign="center">
@@ -33,6 +33,9 @@ class Partners extends React.Component {
           <br />
           {ThirdPartners && <Header size="tiny"> GOLD PARTNERS </Header>}
           {ThirdPartners && <CardContainer Blogs={ThirdPartners} size="5" />}
+          <br />
+          {SilverPartners && <Header size="tiny"> SILVER PARTNERS </Header>}
+          {SilverPartners && <CardContainer Blogs={SilverPartners} size="5" />}
           <br />
           <br />
         </Container>

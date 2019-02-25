@@ -93,15 +93,19 @@
         ]
     },
     "year2019" : {
-        "SecondPartners": [
+        "FirstPartners": [
             {
                 "image": "static/images/partners/prince.jpg",
                 "name": "prince-2019"
-            },
+            } 
+        ],
+        "SecondPartners": [
             {
                 "image": "static/images/partners/noble.jpg",
                 "name": "noble-2019"
-            },
+            }
+        ],
+        "SilverPartners": [
             {
                 "image": "static/images/partners/panasonic.jpg",
                 "name": "panasonic-2019"
